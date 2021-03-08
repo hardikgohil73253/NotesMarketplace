@@ -1,0 +1,1485 @@
+html {
+    height: 100%;
+    width: 100%;
+    
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    
+}
+
+/* Background */
+#background {
+    min-height: 100%;
+    width: 100%;
+    overflow: scroll;
+    background-image: url("../img/pre-login/banner-with-overlay.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+
+/* For General Purpose Element */
+h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+p {
+    margin-bottom: 30px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #333333;
+}
+
+
+/* Genreal Input Fields */
+Input[type=email],
+Input[type=password],
+Input[type=text],
+Input[type=date] {
+    border: 1px solid #6255a5;
+    height: 50px;
+    border-radius: 3px;
+}
+Input[type=checkbox] {
+    border: 1px solid #d1d1d1;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+
+/* General Font*/
+.mytext {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.mytext span {
+    color: #6255a5;
+}
+
+
+/* General Label */
+.classlable {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+}
+
+/* General Button */
+#idbtn {
+    background-color: #6255a5;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    margin-top: 10px;
+    border: none;
+    font-style: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+    width: 100%;
+}
+
+/* Focus on Feilds */
+.classinput:focus,
+.InputPassword1:focus {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+}
+
+.classinput::-webkit-input-placeholder,
+.InputPassword1::-webkit-input-placeholder {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #8a8a8a;
+}
+
+.classinput:-ms-input-placeholder,
+.InputPassword1:-ms-input-placeholder {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #8a8a8a;
+}
+
+.classinput::placeholder,
+.InputPassword1::placeholder {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #8a8a8a;
+}
+
+/* Eye For Password Field */
+.wrapper {
+    position: relative;
+}
+
+.wrapper img {
+    position: absolute;
+    top: 35%;
+    right: 4%;
+}
+.wrapper span {
+    position: absolute;
+    top: 35%;
+    right: 4%;
+}
+.wrapper img.searchimage {
+    position: absolute;
+    left: 2%;
+}
+
+.wrapper img.searchimage.doup {
+    position: absolute;
+    left: 5%;
+    top: 24.5%;
+}
+
+.wrapper i {
+    position: absolute;
+    top: 32%;
+    right: 3%;
+}
+
+/* Content Box */
+.content-box-md {
+    margin: 60px 0;
+}
+
+.wrapper-image {
+    position: relative;
+}
+
+.wrapper-image .uploadmypic {
+    position: absolute;
+    top: 45% !important;
+    left: 50%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
+}
+
+/*===============================
+            Header
+================================*/
+.givecolor {
+    color: #6255a5;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #6255a5;
+    color: #fff;
+}
+
+.dropdown-menu {
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20 0 rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.navbar {
+    height: 100px;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+ul.navbar-nav > li > a {
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+ul.navbar-nav > li > div > a.nav-inner-item  {
+    font-family: "Open Sans", sans-serif;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+ul.navbar-nav > li > a:hover,
+ul.navbar-nav > li > a:focus {
+    background: none;
+    color: #6255a5;
+    border-bottom: 3px solid #6255a5;
+}
+
+.userprofile-user-icon {
+    height: 40px;
+    width: 40px;
+    margin: 0 15px;
+}
+
+/* White Navigation */
+
+.white-nav-top {
+    background: #fff;
+    -webkit-box-shadow: 0 8px 6px -9px #999;
+    box-shadow: 0 8px 6px -9px #999;
+    z-index: 2;
+}
+
+.white-nav-top ul.navbar-nav > li > a:hover,
+.white-nav-top ul.navbar-nav > li > a:focus {
+    border-bottom: 3px solid #6255a5;
+    color: #6255a5;
+}
+
+.white-nav-top ul.navbar-nav > li > a {
+    color: #000;
+}
+
+#mynavbtn {
+    border-radius: 3px;
+    background-color: #fff;
+    font-style: "Open Sans";
+    font-size: 16px !important;
+    color: #6255a5;
+    width: 89px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.white-nav-top #mynavbtn {
+    background-color: #6255a5;
+    color: #fff;
+}
+
+/*===============================
+            Footer
+================================*/
+
+footer {
+    width: 100%;
+    height: 100px;
+    border-top: 1.5px solid #ced4da;
+}
+
+footer .footer-content {
+    margin-top: 41px;
+}
+
+ul.social-list li {
+    display: inline-block;
+    padding: 0 3px;
+}
+
+footer p {
+    margin: 0;
+}
+
+ul.social-list li a {
+    border: none;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    background-color: #6255a5;
+    display: inline-block;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.myfooter {
+    position: relative;
+    bottom: 0 !important;
+}
+
+
+
+/*===============================
+            Login Page
+================================*/
+
+/* For Create Form in center */
+#login-page {
+    padding: 10%;
+}
+
+/* For Form Section */
+#login-form {
+    margin-top: 25px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.errorborder {
+    border: 1px solid #ff5e5e !important;
+    border-left-width: 3px !important;
+}
+
+#login-form Input[type=email] {
+    margin-bottom: 30px;
+}
+
+
+
+#login-form .checkbox1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-left: 22px;
+    margin-top: 7.5px;
+}
+
+
+
+#login-form .myforgotlabel {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #6255a5;
+}
+
+#login-form .container {
+    padding: 0;
+}
+
+.errormsg p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #FF3636;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.check1 {
+    margin-bottom: 30px;
+}
+
+
+
+/*=====================================
+            Forgot Password Page
+=======================================*/
+
+/* For Create Form in center */
+#forgotpass-page {
+    padding: 10%;
+}
+
+/* For Form Section */
+#forgotpass-form {
+    margin-top: 25px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#changepass-form Input[type=password] {
+    margin-bottom: 30px;
+}
+
+/*=====================================
+            SignUp Page
+=======================================*/
+/* For Create Form in center */
+#signup-page {
+    padding: 10%;
+}
+
+
+/* For Form Section */
+#signup-form {
+    margin-top: 25px;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.extra {
+    margin-bottom: 30px;
+}
+
+#signup-page .text2 p {
+    margin-bottom: 10px;
+    color: #28a745;
+}
+
+#signup-head p span {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #333333;
+    margin-bottom: 0;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/*=====================================
+            My Profile Page
+=======================================*/
+
+/* Bacground Image Section 1 */
+#userprofile-img {
+    height: 250px;
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+    background-size: 100% 100%;
+    background-image: url("../img/banner-with-overlay.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* text in image */
+#userprofile-img h2 {
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.add-user-data {
+    margin-top: 160px;
+}
+.heading h3 {
+    margin-bottom: 40px;
+    font-size: 34px;
+}
+
+#user-data .marginright {
+    margin-right: 15px;
+}
+
+#user-data .marginright .wrapper img {
+    position: absolute;
+    top: 36%;
+    right: 12%;
+}
+
+.user-profile Input[type=email],
+.user-profile Input[type=password],
+.user-profile Input[type=text],
+.user-profile Input[type=date] {
+    border: 1px solid #ced4da;
+}
+
+.user-profile Input[type=date]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    z-index: 888;
+}
+
+.upload-profile-pic Input[type=file] {
+    height: 110px;
+    position: relative;
+    color: transparent;
+}
+
+Input[type=file]::-webkit-file-upload-button {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
+    height: 90px;
+    width: 120px;
+    z-index: 999;
+    opacity: 0;
+}
+
+.upload-profile-pic .uploadmypic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
+}
+
+.upload-profile-pic .uploadmypic h6 {
+    color: #ced4da !important;
+    font-size: 18px;
+}
+/*=================================
+        Manage Admin Page
+===================================*/
+#manage-details .addbutton {
+    background-color: #6255a5;
+    height: 50px;
+    border-radius: 3px;
+    color: #fff;
+    padding: 13px 20px;
+    border: none;
+    font-style: "Open Sans";
+    font-size: 18px;
+    line-height: 22px;
+       
+}
+
+/*=================================
+            Email Verification Page
+===================================*/
+#emailverification-page {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: relative;
+}
+
+#emailverification-page .email-container .whitebg {
+    left: 50%;
+    top: 50%;
+    padding: 30px;
+    background-color: #fff;
+    position: absolute;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+#emailverification-page .verify-content h4 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+#emailverification-page .verify-content h2 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin-top: 50px;
+    line-height: 30px;
+}
+
+#emailverification-page .verify-content h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+#emailverification-page .verify-content p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
+    color: #333333;
+}
+
+
+#emailverification-page .verify-content #idbtn {
+    width: 540px;
+}
+
+
+
+/*=================================
+            Search Page
+===================================*/
+
+#searchpage-filter h3 {
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+select {
+    background-image: url("../img/user-profile/down-arrow.png") !important;
+    background-position: calc(100% - 3px) 20px, calc(100% - 0px) 1px, 100%;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis;    
+    
+}
+
+select:enabled {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8a8a8a;
+    
+}
+
+select.form-control {
+    height: 50px;
+}
+
+.search-bar {
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    background-position: left;
+}
+
+#searchpage-filter .div-filter {
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+
+#searchpage-filter .div-filter input {
+    border: 1px solid #d1d1d1;
+}
+
+#searchpage-filter .div-filter input:-ms-input-placeholder {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8a8a8a;
+}
+
+#searchpage-filter .div-filter input::-webkit-input-placeholder {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8a8a8a;
+}
+
+#searchpage-filter .div-filter input::placeholder {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8a8a8a;
+}
+
+#searchpage-filter .filter-upper {
+    margin-bottom: 20px;
+}
+
+#searchpage-filter .wrapper img {
+    position: absolute;
+    top: 33%;
+    right: 4%;
+}
+
+#searchpage-note h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 30px;
+    font-family: "Open Sans", sans-serif;
+    
+}
+
+#searchpage-note .book-box {
+    border: 1px solid #d1d1d1;
+    margin-bottom: 30px;
+}
+
+#searchpage-note .book-box .book-box-content h6 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    color: #6255a5;
+    margin-bottom: 30px;
+}
+
+#searchpage-note .book-box img {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#searchpage-note .book-box .book-box-content .add-info p.inappropriate-mark span {
+    color: #df3434;
+}
+
+#searchpage-note .book-box .book-box-content .add-info p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+#searchpage-note .book-title {
+    min-height: 80px;
+}
+.review-text {
+    margin-top: 15px;
+}
+.rate {
+    float: left;
+}
+
+.rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+
+.pagination {
+   
+    margin-bottom: 60px
+}
+
+.pagination .selected a {
+    background: #6255a5;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 50%;
+    line-height: 20px;
+
+}
+
+.pagination li a {
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 5px;
+    border: none;
+}
+
+
+
+
+/*===============================
+            Notes Details Page
+================================*/
+
+#extra-user-data {
+    margin-top: 160px;
+}
+
+#extra-user-data .heading h3,
+#notesdetail-preview .heading h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
+.content-box-md hr {
+    margin: 0;
+}
+
+#extra-user-data h2 {
+    margin-bottom: 15px;
+}
+
+#notesdetail-preview h5 {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 600;
+    margin-bottom: 5px;
+
+}
+
+#extra-user-data h5 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+#notesdetail-preview p,
+#extra-user-data p {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+
+}
+
+#notesdetail-preview p {
+    margin-top: 5px;
+}
+
+#notesdetail-preview .customer-reviews {
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    padding: 30px;
+}
+
+#notesdetail-preview {
+    margin-bottom: 60px;
+}
+
+#extra-user-data p {
+    margin-bottom: 10px;
+}
+
+#extra-user-data #idbtn {
+    margin-top: 0;
+    width: 204px;
+}
+
+.inappropriate p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #df3434;
+    margin-bottom: 0 !important;
+    margin-top: 10px !important;
+}
+
+#extra-user-data .left-side-note h5 {
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+#extra-user-data .right-side-note h5,
+.numofreview {
+    font-size: 18px !important;
+    line-height: 36px !important;
+    color: #6255a5 !important;
+    font-weight: 600 !important;
+    font-style: normal;
+    margin-bottom: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.responsive-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+}
+
+.responsive-wrapper img,
+.responsive-wrapper object,
+.responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+#Iframe-Cicis-Menu-To-Go {
+    max-width: 666.67px;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.responsive-wrapper-padding-bottom-90pct {
+    padding-bottom: 112%;
+}
+
+.rate-fa i {
+    font-size: 18px;
+}
+
+.rate-fa i.giverate {
+
+    color: #ffc700;
+}
+
+#exampleModal h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #333333;
+}
+
+#exampleModal h2 {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#exampleModal p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 30px;
+    margin-top: 0 !important;
+}
+
+#exampleModal p.para-4 {
+    margin-bottom: 0;
+}
+
+#exampleModal {
+    margin-top: 150px;
+}
+
+#exampleModal .modal-header {
+    border: none;
+}
+
+#exampleModal .model-data {
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 55px;
+}
+
+/*===============================
+            Dashboard Page
+================================*/
+
+
+#dashboard-progress h3,
+#manage-details h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 30px;
+    margin-top: 13px;
+    
+}
+
+
+#dashboard-upper h3 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 34px;
+    margin: 0;
+}
+.select-margin {
+    margin-bottom: 20px;
+    
+}
+
+#dashboard-first-section h2 {
+    margin-bottom: 30px;
+}
+
+#dashboard-first-section #idbtn {
+    width: 150px;
+    margin-top: 0;
+}
+#dashboard-progress Input[type=email],
+#manage-details Input[type=email] {
+    width: 322px;
+    border: 1px solid #d1d1d1;
+    margin-bottom: 20px;
+}
+
+#dashboard-progress #idbtn,
+#manage-details #idbtn {
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 117px;
+}
+
+
+.btn-merge #idbtn {
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+#dashboard-upper {
+    margin: 150px 0 60px 0;
+}
+
+#dashboard-upper .rmvpadding {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
+.dashboard-large-heading h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 38px;
+    color: #6255a5;
+}
+
+.dashboard-upper-title {
+    margin-bottom: 20px;
+}
+
+.left-earning .col-md-4 {
+    border: 1px solid #d1d1d1;
+    padding: 30px 30px 0px 30px;
+}
+.left-earning .col-md-8 {
+    border: 1px solid #d1d1d1;
+    padding: 30px 30px 0px 30px;
+}
+
+.left-earning h4{
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 34px;
+    color: #6255a5;
+}
+.note-info h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 34px;
+    color: #6255a5;
+}
+
+.left-earning h5 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    color: #6255a5;
+    margin-top: 10px;
+}
+
+.left-earning p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #333333;
+}
+.note-info p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #333333;
+}
+#dashboard-first-section p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+}
+
+#dashboard-first-section .fill-box {
+    border: 1px solid #d1d1d1;
+}
+
+#dashboard-first-section .left-box {
+    border: 1px solid #d1d1d1;
+    border-right: none;
+}
+
+#dashboard-first-section .main-box-l {
+    border: 1px solid #d1d1d1;
+    border-right: none;
+}
+
+.note-info h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 34px;
+    color: #6255a5;
+}
+
+.right-dash {
+    border: 1px solid #d1d1d1;
+    padding: 30px 30px 0px 30px;
+}
+
+#dashboard-upper #idbtn {
+    width: 150px;
+    margin: 0;
+}
+
+.giveinnerpadding {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.giveinnerpadding .classlable {
+    -webkit-transform: translateY(30%);
+    transform: translateY(30%);
+    margin-left: 10px;
+}
+
+
+.dobig {
+    font-size: 21px;
+}
+
+#dashboard-first-section p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+}
+
+#dashboard-first-section .fill-box {
+    border: 1px solid #d1d1d1;
+}
+
+#dashboard-first-section .left-box {
+    border: 1px solid #d1d1d1;
+    border-right: none;
+}
+
+#dashboard-first-section .main-box-l {
+    border: 1px solid #d1d1d1;
+    border-right: none;
+}
+
+/*===============================
+            Table
+================================*/
+
+.table-responsive {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+table {
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    margin-bottom: 50px !important;
+}
+
+table th {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #333333;
+}
+
+table td {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+
+}
+.leftmar {
+    margin-left: 15px
+}
+.leftpad {
+    padding-left: 25px;
+}
+table tr {
+    height: 75px;
+    white-space: nowrap;
+}
+
+table tbody tr:hover {
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+/*===============================
+            Add Notes 
+================================*/
+#sell-details .wrapper-image input{
+    height: 130px;
+}
+textarea.form-control {
+    height: 153px;
+}
+
+Input[type=radio] {
+    height: 35px;
+    width: 35px;
+}
+
+input[type='radio']:checked:after {
+    width: 22px;
+    height: 22px;
+    border-radius: 15px;
+    top: 6.2px;
+    left: 6.7px;
+    position: relative;
+    background-color: #6255a5;
+    content: ' ';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+
+
+/*===============================
+            My Downloads 
+================================*/
+
+.manage-details-alter {
+    margin-top: 160px !important;
+}
+.member-margin {
+    margin-top: 60px !important;
+}
+
+.manage-details-alter h3 {
+    font-size: 34px !important;
+    font-weight: 600 !important;
+    line-height: 38px !important;
+}
+
+.dowhite {
+    color: #d1d1d1;
+}
+
+.getpurple {
+    color: #6255a5;
+}
+
+/*===============================
+            FAQ
+================================*/
+
+
+
+
+.FAQ h3 {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+.card-body {
+    display: none;
+    border: 1px solid #d1d1d1;
+    margin-bottom: 15px;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.card-body h4 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    font-family: "Open Sans";
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.card-body p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    font-family: "Open Sans";
+    color: #333333;
+    margin: 0;
+    width: 90%;
+}
+
+.card-body.mybody5 {
+    margin-bottom: 0 !important;
+}
+
+.card-body.mybody7 {
+    margin-bottom: 0 !important;
+}
+
+.card-header h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    font-family: "Open Sans";
+    color: #333333;
+}
+.card-body.mybody3 {
+    margin-bottom: 0 !important;
+}
+
+.card-header {
+    margin-bottom: 15px;
+    border-bottom: none;
+    -webkit-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+
+.card-header.myhead3 {
+    margin-bottom: 0;
+}
+
+.card-header.myhead5 {
+    margin-bottom: 0;
+}
+
+.card-header.myhead7 {
+    margin-bottom: 0;
+}
+
+/*===============================
+            Contacy Us 
+================================*/
+.contact-us .heading h3 {
+    margin-bottom: 10px;
+}
+
+.contact-us .heading .classlable {
+    margin-bottom: 50px !important;
+}
+
+.contact-us textarea {
+    height: 245px;
+}
+
+.contact-us #idbtn {
+    width: 150px;
+    margin-top: 20px;
+}
+
+
+/* Member*/
+.center1 {
+    margin-left: 33%;
+}
+.center2 {
+    margin-left: 13%;
+}
+
+/*Notes Under Review*/
+.review-btn {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    font-family: "Open Sans",sans-serif;
+    width: 112px;
+    color: #fff;
+    margin-right: 10px;
+    
+    height: 40px;
+}
+.review-btn:hover {
+    color: #fff;
+}
+
+.btn-green {
+    background-color: #28a745;
+}
+.btn-red {
+    background-color: #ff3636;
+}
+.btn-gray {
+    background-color: #cccccc;
+}
+.div-seller {
+    margin-bottom: 20px;
+}
+
+.seller-text {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    font-family: "Open Sans",sans-serif;
+}
+
+.div-seller select {
+     font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #333333;
+    font-family: "Open Sans",sans-serif;
+}
+.seller-dd {
+    width: 174px;
+    border: 1px solid #d1d1d1;
+}
+.seller-mb {
+    margin-top: 30px;
+}
+.icon-margin {
+    margin-left: 5px;
+}
+
+
+
+
+

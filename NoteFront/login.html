@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>Login</title>
+    
+    <!-- Icon -->
+    <link rel="Icon" href="img/favicon/favicon.ico">
+
+    <!-- Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- Login Page -->
+    <section id="background-image">
+        <div id="main-container" class="container">
+
+            <!-- LOGO -->
+            <div class="row justify-content-center">
+                <div id="logo" class="text-center">
+
+                    <img src="img/pre-login/top-logo.png" class="img-fluid" alt="Login">
+                </div>
+            </div>
+
+
+            
+            
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-12 col-sm-11 col-lg-9 col-xl-8">
+
+
+                    <div id="white-background-form">
+
+                        <!-- Heading -->
+                        <div id="login-head" class="text-center">
+                            <h2>Login</h2>
+                            <p>Enter your email address and password to login</p>
+                        </div>
+
+                        <!-- Form -->
+                        <form>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label class="classlable" for="classinput">Email</label>
+                                <input type="email" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Email Address">
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-6 col-md-6">
+                                            <label class="classlable InputPassword1">Password</label>
+                                        </div>
+
+                                        <!-- Forgot Password -->
+                                        <div class="col-6 col-sm-6 clo-md-6  text-right">
+                                            <label class="myforgotlabel">Forgot Password?</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Eye icon -->
+                                <div class="wrapper">
+                                    <input type="password" class="errorborder form-control classinput InputPassword1" placeholder="Enter your password" id="InputPassword1">
+                                    <span toggle="#InputPassword1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+
+                                <!-- Error Message -->
+                                <div class="errormsg">
+                                    <p>The password that you've entered is incorrect</p>
+                                </div>
+                            </div>
+
+                            <!-- Remember Me -->
+                            
+                            <div class="form-group form-check check1">
+                                <input type="checkbox" class="form-check-input exampleCheck">
+                                <label class="checkbox1" for="exampleCheck">Remember Me</label>
+                            </div>
+
+                            <!-- LOGIN Button -->
+                            <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>login</b></button>
+                        </form>
+
+                        <p class="text-center mytext">Don't have an account? <span>Sign Up</span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Login Page End -->
+
+    <!-- JQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

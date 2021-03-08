@@ -1,0 +1,843 @@
+
+/*===============================
+            Header
+================================*/
+.navbar-header {
+     position: relative;
+ }
+
+ #mobile-nav-open-btn {
+     visibility: visible;
+     font-size: 30px;
+     color: #6255a5;
+     cursor: pointer;
+     z-index: 2;
+     position: absolute;
+     display: none;
+     right: 0%;
+ }
+
+ .navbar-movable #mobile-nav-open-btn {
+     right: 6%;
+ }
+
+ #mobile-nav {
+     /* by defalut,  mobile nav will be hidden with height 0% */
+     width: 100%;
+     height: 0%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 3;
+     background-color: rgba(255, 255, 255, 0.9);
+     -webkit-transition: all 300ms linear;
+     transition: all 300ms linear;
+     overflow-y: hidden;
+ }
+
+ #mobile-nav img {
+     width: 35px;
+     height: 35px;
+ }
+
+ #mobile-nav-close-btn {
+     font-family: "Open Sans", sans-serif;
+     font-size: 70px;
+     color: #212226;
+     font-weight: 400;
+     cursor: pointer;
+     position: absolute;
+     top: -9px;
+     right: 13px;
+     -webkit-transition: .3s;
+     transition: .3s;
+ }
+
+ #mobile-nav-content {
+     text-align: center;
+     width: 100%;
+     margin-top: 30px;
+     position: relative;
+     top: 10%;
+ }
+
+ #mobile-nav ul li {
+     margin-bottom: 20px;
+ }
+
+ #mobile-nav ul li a:hover,
+ #mobile-nav ul li a:focus {
+     color: #6255a5;
+     border: none !important;
+     border-bottom: 3px solid #6255a5;
+ }
+
+ #mobile-nav ul li #idbtn {
+     margin-bottom: 20px;
+     background-color: #6255a5;
+     color: #fff;
+ }
+
+ #mobile-nav a {
+     font-family: "Open Sans", sans-serif;
+     font-size: 20px;
+     color: #212226;
+     font-weight: 400;
+     display: inline;
+     -webkit-transition: .3s;
+     transition: .3s;
+ }
+
+/*===============================
+           1200 and up
+================================*/
+@media (min-width: 1200px){ 
+    .extra-margin1 {
+        position: relative;
+        transform: translateX(185px);
+    }
+    .extra-margin2 {
+        position: relative;
+        transform: translateX(95px);
+    }
+    .extra-margin3 {
+        position: relative;
+        transform: translateX(55px);
+    }
+    .extra-margin4 {
+        position: relative;
+        transform: translateX(80px);
+    }
+    
+}
+/*===============================
+            Upto 391
+================================*/
+@media (min-width: 1200px) {
+    .select-input-margin {
+        margin-right: 0px;   
+    }
+    
+}
+
+/*===============================
+            991 To 1200
+================================*/
+@media (min-width: 991px) and (max-width: 1200px) {
+    
+     .note-info p {
+         margin-bottom: 0;
+         min-height: 80px;
+     }
+    .review-btn {
+        font-size: 16px;
+        line-height: 18px;
+        height: 35px;
+        margin-right: 5px;
+        padding: 0 7px;
+      
+    }
+
+     
+     ul.navbar-nav > li > a {
+         font-size: 14px !important;
+     }
+
+     #home-customer .sub-deatials {
+         min-height: 70px !important;
+     }
+
+     .userprofile-user-icon {
+
+         margin: 0 10px;
+     }
+
+     #searchpage-notes .review-text {
+         -webkit-transform: translate(-50%, 90%);
+         transform: translate(-50%, 90%);
+
+     }
+     .responsive-wrapper-padding-bottom-90pct {
+         padding-bottom: 135%;
+     }
+
+
+     #searchpage-notes .review-text p {
+         font-size: 11px;
+     }
+
+     #searchpage-notes .book-title {
+         min-height: 90px;
+     }
+ }
+ /*===============================
+            Upto 991
+================================*/
+@media (max-width: 991px) {
+     .top-table {
+         text-align: center;
+     }
+
+     .top-table .justify-content-end {
+         -webkit-box-pack: center !important;
+         -ms-flex-pack: center !important;
+         justify-content: center !important;
+     }
+     #dashboard-upper .left-earning {
+        margin-bottom: 30px;
+     }
+     .row.earning {
+         margin-bottom: 30px;
+     }
+
+     .upload-profile-pic .uploadmypic h6 {
+         font-size: 15px;
+     }
+
+     #searchpage-notes .book-title {
+         min-height: 100px;
+     }
+
+     .review-text {
+         text-align: center;
+     }
+
+     .rate {
+         -webkit-transform: translateX(50%);
+         transform: translateX(50%);
+     }
+
+     #home-about h2,
+     #home-how h2 {
+         font-size: 25px;
+         line-height: 28px;
+     }
+
+     
+
+     
+     #home-how p,
+     #home-customer .feedback-box p{
+         font-size: 15px;
+         line-height: 18px;
+     }
+     
+     #home-customer .feedback-text p {
+        font-size: 22px;
+     }
+     #home-about p {
+        font-size: 15px;
+         line-height: 18pz;;
+     }
+
+     #mobile-nav-open-btn {
+         display: block;
+     }
+
+     .navbar-header {
+         width: 100%;
+     }
+
+     #home-customer .head-details h3 {
+         font-size: 25px;
+     }
+     
+
+     #home-customer .sub-deatials {
+         min-height: 40px !important;
+         margin-bottom: 0 !important;
+     }
+
+     #home-about .r p {
+         margin-bottom: 30px !important;
+     }
+
+     #home-customer img {
+         margin-top: 20%;
+     }
+
+     .margin-top {
+         margin-top: 20px;
+     }
+    
+    /*Add button*/
+    .addbutton {
+        margin-bottom: 20px;
+    }
+    
+    /*Notes Under Detail*/
+     .div-seller {
+        margin-left: 33%;
+         margin-bottom: 0;
+     }
+        .seller-text span{
+        margin-left: 14%;
+    }
+    .seller-mb {
+    margin-top: 30px;
+    }
+    #dashboard-upper .note-info > div:first-child p {
+        margin-bottom: 52px;
+     }
+ }
+ /*===============================
+            Upto 767
+================================*/
+ @media (max-width: 767px) {
+    
+    
+     /*Dahboard*/
+     .dashboard-upper-title h2 {
+         text-align: center;
+         margin-bottom: 20px;
+     }
+
+     .note-info .right-dash {
+         min-height: 170px;
+     }
+
+     #dashboard-upper button#idbtn {
+         width: 100%;
+     }
+
+     #dashboard-progress h3,
+     #manage-details h3 {
+         text-align: center;
+     }
+     .review-btn {
+        font-size: 14px;
+        line-height: 16px;
+        height: 30px;
+        margin-right: 5px;
+        padding: 0 5px;;
+        width: 80px;
+      
+    }
+
+
+     
+     #dashboard-progress #idbtn,
+     #manage-details #idbtn {
+         margin-right: 0;
+     }
+
+     #exampleModal .model-data p {
+         font-size: 14px;
+         margin-bottom: 10px;
+     }
+     #dashboard-progress .justify-content-end,
+     #manage-details .justify-content-end {
+         -webkit-box-pack: center !important;
+         -ms-flex-pack: center !important;
+         justify-content: center !important;
+     }
+
+
+     #exampleModal .model-data h2 {
+         font-size: 18px;
+         margin-top: 5px;
+         margin-bottom: 5px;
+     }
+
+     #exampleModal .model-data h3 {
+         font-size: 16px;
+         text-align: left
+     }
+
+     #exampleModal .model-data img {
+         height: 30px;
+         width: 30px;
+     }
+
+     #exampleModal {
+         margin-top: 100px;
+     }
+
+     #searchpage-filter h3,
+     #searchpage-notes h3 {
+         text-align: center;
+     }
+     .book-box .review-text p{
+         font-size: 15px;
+         
+     }
+     #searchpage-filter .div-filter .inputselect {
+         margin: 5px 0;
+     }
+
+     #emailverification-page .verify-content #idbtn {
+         width: 450px;
+     }
+    
+     .classlable,
+     .classinput:focus,
+     .InputPassword1:focus {
+         font-size: 13px;
+         line-height: 16px;
+     }
+     
+     .classlable1 {
+        font-size: 15px;
+         line-height: 17px;
+     }
+
+     #home-customer .feedback-box {
+
+         text-align: center;
+     }
+
+     .wrapper img {
+         top: 30%;
+         right: 3%;
+         height: 12px;
+     }
+     
+
+     #homepage-img .home-head-content .bold-text h1 {
+         font-size: 27px;
+         line-height: 30px;
+     }
+
+     h2 {
+         font-size: 25px;
+         line-height: 28px;
+     }
+
+     h3 {
+         font-size: 23px;
+         line-height: 26px;
+     }
+
+     p {
+         font-size: 11px;
+         line-height: 15px;
+
+     }
+     #login-page button,
+     #signup-page button,
+     #changepass-page button,
+     #forgotpass-page button,
+     #emailverification-page,
+     #extra-user-data button{
+         height: 40px;
+         font-size: 15px;
+     }
+     #changepass-page Input::placeholder,
+     #forgetpasspass-page Input::placeholder,
+     #signup-page Input::placeholder,
+     #login-page Input::placeholder{
+        font-size: 13px;
+     }
+     #login-page .check1 Input{
+        width: 20px;
+     }
+     #login-page .check1 label{
+        margin-left: 10px;
+         font-size: 13px;
+         margin-top: 10px;
+     }
+
+     #login-page #login-head p {
+         margin-bottom: 15px;
+     }
+
+     #forgotpass-page #forgotpass-head p {
+         margin-bottom: 15px;
+     }
+
+     /* Login Form */
+     #login-form {
+         padding: 20px;
+         margin-top: 15px;
+     }
+
+     #login-form Input[type=email] {
+         margin-bottom: 15px;
+     }
+
+     #login-form .mycheckbox {
+         font-size: 12px;
+         line-height: 16px;
+         margin-left: 20px;
+     }
+
+     #login-form .mytext {
+         font-size: 12px;
+         line-height: 16px;
+         margin-top: 10px;
+     }
+
+     #login-form .myforgotlabel {
+         font-size: 12px;
+         line-height: 14px;
+     }
+
+     .errormsg p {
+         font-size: 10px;
+         line-height: 15px;
+     }
+
+     .check1 {
+         margin-bottom: 15px;
+     }
+
+     /* Forgot Password Form */
+     #forgotpass-form {
+         padding: 20px;
+         margin-top: 15px;
+     }
+
+     #forgotpass-form #idbtn {
+         margin-top: 5px;
+     }
+
+     /* Change Password Form */
+     #changepass-form {
+         padding: 20px;
+         margin-top: 15px;
+     }
+
+     #changepass-form h2 {
+         margin-bottom: 5px;
+     }
+
+     #changepass-form p {
+         margin-bottom: 20px;
+     }
+
+     #changepass-form Input[type=password] {
+         margin-bottom: 15px;
+     }
+
+     /* Sign Up Form */
+     #signup-form .mytext {
+         font-size: 12px;
+         line-height: 16px;
+         margin-top: 10px;
+     }
+
+     #signup-form {
+         padding: 20px;
+         margin-top: 15px;
+     }
+
+     #signup-form #idbtn {
+         margin-top: 0;
+     }
+
+     #signup-form h2 {
+         margin-bottom: 5px;
+     }
+
+     #signup-form p {
+         margin-bottom: 15px
+     }
+
+     #signup-form .text2 p {
+         margin-bottom: 0;
+     }
+
+     /* User Profile */
+     #userprofile-img h2 {
+         font-size: 25px;
+         line-height: 28px;
+     }
+
+     .add-user-data .heading h3 {
+         font-size: 20px;
+         line-height: 23px;
+     }
+     .add-user-data Input::placeholder,
+     .add-user-data select,{
+         font-size: 13px;
+     }
+
+     /* Footer */
+
+     footer .footer-content {
+         margin-top: 41px;
+     }
+
+     ul.social-list li {
+         display: inline-block;
+         padding: 0;
+     }
+
+     footer p {
+         margin: 0;
+     }
+
+     ul.social-list li a {
+         border: none;
+         text-align: center;
+         width: 35px;
+         height: 35px;
+         background-color: #6255a5;
+         display: inline-block;
+         line-height: 35px;
+         color: #fff;
+         -webkit-transform: translateY(-26px);
+         transform: translateY(-26px);
+         border-radius: 50%;
+     }
+
+     #home-customer .feedback-box img {
+         margin-top: 20px;
+         margin-bottom: 20px;
+     }
+
+
+     #home-customer .feedbacks .first-r-f {
+         margin-bottom: 0;
+     }
+
+     .domargin {
+         margin-bottom: 20px;
+     }
+
+     .rate {
+         -webkit-transform: translateX(25%) !important;
+         transform: translateX(25%) !important;
+     }
+     
+     #dashboard-upper .dashboard-content left-earning {
+         
+     }
+     .add-notes-form Input::placeholder,
+     .add-notes-form TextArea::placeholder,
+     .add-notes-form select{
+         font-size: 13px;
+     }
+     #dashboard-upper .note-info > div:first-child p {
+        margin-bottom: 52px;
+     }
+     
+     /*Notes Under Review*/
+     .seller-text span{
+        margin-left: 18%;
+    }
+     
+ }
+/*===============================
+            Upto 577
+================================*/
+@media (max-width: 577px) {
+      
+     
+     #searchpage-notes .book-title {
+         min-height: 0;
+     }
+
+     .rate {
+         -webkit-transform: translateX(50%) !important;
+         transform: translateX(50%) !important;
+     }
+
+     .docenter {
+         text-align: center;
+     }
+
+     #notesdetails-detail h3,
+     #notes-details-preview h3 {
+         text-align: center;
+     }
+    #dashboard-upper .left-earning {
+        margin-bottom: 0px;
+     }
+     .myearning {
+         text-align: center
+     }
+
+     .mynote-info {
+         -webkit-box-pack: center !important;
+         -ms-flex-pack: center !important;
+         justify-content: center !important;
+     }
+
+     .mynote-info .dash-right {
+         margin-bottom: 20px;
+         min-height: 50px;
+         margin-left: 10px;
+         margin-right: 10px;
+     }
+
+     .row.earning {
+         padding: 0 20px;
+     }
+     #email-verification .verification-content #idbtn {
+         width: 350px !important;
+     }
+
+     #exampleModal .model-data {
+         padding-bottom: 10px;
+         padding-left: 10px;
+         padding-right: 10px;
+     }
+    #dashboard-upper .note-info > div:first-child p {
+        margin-bottom: 30px;
+     }
+    .right-side-note {
+        position: absolute;
+        text-align: right
+    }
+    .right-side-note {
+        position: absolute;
+        text-align: right;
+        margin-top: 20px;
+    }
+    #extra-user-data img {
+        margin-top: 20px;
+    }
+    .left-side-note {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+ }
+/*===============================
+            Upto 450
+================================*/
+ @media (max-width: 450px) {
+     
+
+     #extra-user-data .left-side-note h5 {
+         font-size: 16px !important;
+
+     }
+        
+     #dashboard-progress Input[type=email],
+     #manage-details Input[type=email] {
+         width: 100%;
+     }
+     
+     #notesdetails-detail .right-side-note h5,
+     .numofreview {
+         font-size: 16px !important;
+     }
+     #emailverification-page #idbtn {
+         width: 300px !important;
+     }
+
+ }
+/*===============================
+            Upto 410
+================================*/
+ @media (max-width: 410px) {
+
+     
+     #emailverification-page #idbtn {
+         width: 250px !important;
+     }
+
+     ul.social-list li a {
+         width: 30px;
+         height: 30px;
+         padding-bottom: 30px;
+     }
+
+     ul.social-list li {
+         padding-top: 5px;
+
+     }
+     
+     #forgotpass-form,
+     #changepass-form h2 {
+
+         font-size: 18px;
+     }
+
+
+     #dashboard-upper #idbtn {
+         width: 130px;
+         margin: 0;
+     }
+
+ }
+ 
+/*===============================
+            Upto 391
+================================*/
+ @media (max-width: 391px) {
+     #extra-user-data .left-side-note h5 {
+         font-size: 14px !important;
+
+     }
+
+     #extra-user-data .right-side-note h5,
+     .numofreview {
+         font-size: 14px !important;
+     }
+
+     #notesdetail-preview .rate-fa i {
+         font-size: 13px;
+     }
+     .div-seller {
+        margin-left: 25%;
+         margin-bottom: 0;
+     }
+
+     #dashboard-progress #idbtn,
+     #manage-details #idbtn {
+         width: 90%;
+     }
+ }
+
+ @media (max-width: 359px) {
+     #login-form .myforgotlabel {
+         font-size: 10px;
+         line-height: 12px;
+     }
+
+     ul.social-list li a {
+         width: 25px;
+         height: 25px;
+     }
+    
+     /*Notes Under Detail*/
+     .div-seller {
+        margin-left: 25%;
+         margin-bottom: 0;
+     }
+    .seller-text span{
+        margin-left: 20%;
+    }
+    .seller-mb {
+    margin-top: 30px;
+    }
+
+ }
+/*Responsive footer */
+@media (min-width: 991px) and (min-height: 935px){ 
+    .footer-at-end {
+        position: absolute;
+        bottom: 0;
+        
+    }
+}
+@media (min-width: 767px) and (min-height: 812px){ 
+    .footer-at-end-1 {
+        position: absolute;
+        bottom: 0;
+        
+    }
+}
+@media (min-height: 715px) {
+    .second-footer {
+        position: absolute;
+        bottom: 0;
+        
+    }
+}
+@media (min-width: 991px) and (min-height: 1035px){ 
+    .different-footer {
+        position: absolute;
+        bottom: 0;
+        
+    }
+}
+
+
+ 
+
+ 
+

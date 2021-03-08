@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>User profile</title>
+    
+    <!-- Icon -->
+    <link rel="Icon" href="img/favicon/favicon.ico">
+
+    <!-- Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body data-target=".navbar">
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg white-nav-top white-navbar">
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- Mobile Menu Open Button -->
+                    <span id="mobile-nav-open-btn">&#9776;</span>
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href=""><img class="img-fluid" src="img/pre-login/Capture.png"></a>
+                </div>
+
+                <!-- Main Menu -->
+                <div class="collapse navbar-collapse justify-content-end default-header" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Search Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Sell Your Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Buyer Requests</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>FAQ</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Contact Us</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                          
+                           <a class="" href="#">
+                            <div class="userprofile-user-icon">
+                                <img src="img/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User">
+                            </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="mynavbtn">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-nav">
+                    <!-- Mobile Menu Close Button -->
+                    <span id="mobile-nav-close-btn">&times;</span>
+
+                    <div id="mobile-nav-content">
+                        <ul class="navbar-nav">
+                            <li>
+                                <a href="#"><span>Search Notes</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>Sell Your Notes</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>Buyer Requests</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>FAQ</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#"><span>Contact Us</span></a>
+                            </li>
+
+                            <li>
+                                <img src="img/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User">
+                            </li>
+                            <li>
+                                <button type="submit" class="btn text-center" id="mynavbtn">Logout</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+    
+    <!-- User Profile Page -->
+    
+    <!-- Upper Section -->
+    <section>
+        <div id="background-img-text">
+            <div class="centerh2">
+
+                <h2>User Profile</h2>
+
+            </div>
+        </div>
+    </section>
+
+    <form class="user-details-form">
+
+        <!-- Pesronal Detail -->
+        <section id="personal-details" class="user-profile content-box-md">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading">
+                                <h3>Basic Profile Details</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- First Name -->
+                                    <div class="form-group">
+                                        <label class="classlable">First Name*</label>
+                                        <input type="text" class="form-control classinput" placeholder="Enter your First Name">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Last Name -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">Last Name*</label>
+                                        <input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Last Name">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">Email*</label>
+                                        <input type="email" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Email Address">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Date Of Birth -->
+                                    <div class="form-group">
+                                        <label class="classlable">Date Of Birth</label>
+
+                                        <!-- Icon -->
+                                        <div class="wrapper">
+                                            <input type="date" class="form-control classinput" placeholder="Enter your birth of date">
+                                            <img src="img/user-profile/calendar.png" alt="show">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Gender -->
+                                    <div class="form-group">
+                                        <label class="classlable">Gender</label>
+                                        <select class="form-control inputselect">
+                                            <option>Select your gender</option>
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+
+                                    <!-- Phone Number -->
+                                    <div class="form-group">
+                                        <label class="classlable">Phone Number</label>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-5 col-3 col-xl-3 col-lg-4  nopadding">
+                                                    <div class="marginright">
+
+                                                        <select class="form-control inputselect">
+                                                            <option>+91</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-sm-7 col-9 col-xl-9 col-lg-8 nopadding">
+
+                                                    <input type="email" class="form-control classinput" placeholder="Enter your phone number">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Profile Picture -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="upload-profile-pic">
+                                            <label class="classlable" for="classinput">Profile Picture</label>
+
+
+                                            <input type="file" class="form-control classinput" aria-describedby="emailHelp">
+                                            <div class="uploadmypic text-center">
+                                                <img class="img-fluid" src="img/user-profile/upload.png">
+                                                <h6>Upload a picture</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- User Detail Ends-->
+
+        <!-- Address Detail Section -->
+        <section id="Address-details" class="user-profile content-box-md">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head">
+                                <h3>Address Details</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Address Line 1 -->
+                                    <div class="form-group">
+                                        <label class="classlable">Address Line 1 *</label>
+                                        <input type="text" class="form-control classinput" placeholder="Enter your address">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Address Line 2 -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">Address Line 2 *</label>
+                                        <input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your address">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- City -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">City *</label>
+                                        <input type="email" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your city">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- State -->
+                                    <div class="form-group">
+                                        <label class="classlable">State *</label>
+                                        <input type="email" class="form-control classinput" placeholder="Enter your State">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- ZipCode -->
+                                    <div class="form-group">
+                                        <label class="classlable">ZipCode *</label>
+                                        <input type="email" class="form-control classinput" placeholder="Enter your zipcode">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+
+                                    <!-- Country -->
+                                    <div class="form-group">
+                                        <label class="classlable">Country *</label>
+
+                                        
+                                        <select class="form-control inputselect">
+                                            <option>Select your country</option>
+                                            <option>India</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--  Address Detail Ends -->
+
+        <!-- Academic Detail Section -->
+        <section id="study-details" class="user-profile content-box-md">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="head">
+                                <h3>University and College Details</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- University -->
+                                    <div class="form-group">
+                                        <label class="classlable">University</label>
+                                        <input type="text" class="form-control classinput" placeholder="Enter your University">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- College -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">College*</label>
+                                        <input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your College">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Login Button -->
+                    <div class="row">
+                        <div class="col-md-2 col-sm-12">
+                            <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>submit</b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--Academic Detail End-->
+    </form>
+    <!-- footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+
+                        <p>
+                            Copyright &copy;Tatvasoft All Rights Reserved.
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 col-12 text-right">
+
+                        <ul class="social-list">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- footer ends -->
+
+
+    <!-- User Profile End -->
+    <!-- JQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body></html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>Buyer Request</title>
+    
+    <!-- Icon -->
+    <link rel="Icon" href="img/favicon/favicon.ico">
+
+    <!-- Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome/fontawesome-free-5.15.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome/fontawesome-free-5.15.1-web/css/brands.css">
+    <link rel="stylesheet" href="css/font-awesome/fontawesome-free-5.15.1-web/css/solid.css">
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+</head>
+
+<body data-target=".navbar">
+
+    <!--  Buyer Request -->
+    <!-- Header -->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg white-nav-top white-navbar">
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- Mobile Menu Open Button -->
+                    <span id="mobile-nav-open-btn">&#9776;</span>
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href=""><img class="img-fluid" src="img/pre-login/Capture.png"></a>
+                </div>
+
+                <!-- Main Menu -->
+                <div class="collapse navbar-collapse justify-content-end default-header" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Search Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Sell Your Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Buyer Requests</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>FAQ</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span>Contact Us</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="userprofile-user-icon">
+                                <img src="img/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User">
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a type="button" class="nav-link" id="mynavbtn">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-nav">
+                    <!-- Mobile Menu Close Button -->
+                    <span id="mobile-nav-close-btn">&times;</span>
+
+                    <div id="mobile-nav-content">
+                        <ul class="navbar-nav">
+                            <li>
+                                <a href="#"><span>Search Notes</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>Sell Your Notes</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>Buyer Requests</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>FAQ</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#"><span>Contact Us</span></a>
+                            </li>
+
+                            <li>
+                                <img src="img/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User">
+                            </li>
+                            <li>
+                                <button type="submit" class="btn text-center" id="mynavbtn">Logout</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+
+        <!-- Buyer Request -->
+        <section id="table-details-section" class="table-margin">
+                <div class="container">
+                <div class="row top-table">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <h3 class="col-left">Buyer Requests</h3>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 extra-margin">
+                        <div class="row justify-content-end">
+                            <div class="wrapper">
+                                <img src="img/Dashboard/search.jpg" class="searchimage doup">
+                                <input type="email" class="form-control search-bar classinput" placeholder="Search">
+                            </div>
+                            <div class="btn-merge">
+                                <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>Search</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid-table table-responsive-xl">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="align-middle text-center">SR NO.</th>
+                                        <th scope="col" class="align-middle">NOTE TITLE</th>
+                                        <th scope="col" class="align-middle">CATEGORY</th>
+                                        <th scope="col" class="align-middle">BUYER</th>
+                                        <th scope="col" class="align-middle">PHONE NO.</th>
+                                        <th scope="col" class="align-middle">SELL TYPE</th>
+                                        <th scope="col" class="align-middle">PRICE</th>
+                                        <th scope="col" class="align-middle">DOWNLOADED DATE/TIME</th>
+                                        <th scope="col" class="align-middle"></th>
+                                        <th scope="col" class="align-middle"></th>
+                                        <th scope="col" class="align-middle"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle text-center">1</td>
+                                        <td class="align-middle getpurple">Data Science</td>
+                                        <td class="align-middle">Science</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Paid</td>
+                                        <td class="align-middle">$250</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">2</td>
+                                        <td class="align-middle getpurple">Accounts</td>
+                                        <td class="align-middle">Commerce</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Free</td>
+                                        <td class="align-middle">$0</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">3</td>
+                                        <td class="align-middle getpurple">Social Studies</td>
+                                        <td class="align-middle">Social</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Free</td>
+                                        <td class="align-middle">$0</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">4</td>
+                                        <td class="align-middle getpurple">AI</td>
+                                        <td class="align-middle">IT</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Paid</td>
+                                        <td class="align-middle">$158</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">5</td>
+                                        <td class="align-middle getpurple">Lorem ipsum </td>
+                                        <td class="align-middle">Lorem</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Free</td>
+                                        <td class="align-middle">$0</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">6</td>
+                                        <td class="align-middle getpurple">Data Science</td>
+                                        <td class="align-middle">Science</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Paid</td>
+                                        <td class="align-middle">$250</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">7</td>
+                                        <td class="align-middle getpurple">Accounts</td>
+                                        <td class="align-middle">Commerce</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Free</td>
+                                        <td class="align-middle">$0</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">8</td>
+                                        <td class="align-middle getpurple">Social Studies</td>
+                                        <td class="align-middle">Social</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Free</td>
+                                        <td class="align-middle">$0</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">9</td>
+                                        <td class="align-middle getpurple">AI</td>
+                                        <td class="align-middle">IT</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Paid</td>
+                                        <td class="align-middle">$158</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">10</td>
+                                        <td class="align-middle getpurple">Lorem ipsum </td>
+                                        <td class="align-middle">Lorem</td>
+                                        <td class="align-middle">testing123@gmail.com</td>
+                                        <td class="align-middle">+91 7359665134</td>
+                                        <td class="align-middle">Free</td>
+                                        <td class="align-middle">$0</td>
+                                        <td class="align-middle">27 Nov 2020, 11:24:34</td>
+                                        <td class="align-middle">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Allow Download</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- Buyer Request Ends -->
+        <!-- Pagination -->
+        <nav>
+            <div class="container">
+                <div class="row justify-content-center">
+
+
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left"></i></a>
+                        </li>
+                        <li class="page-item selected"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-right"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Pagination Ends -->
+        <!-- Footer -->
+   
+        <footer>
+            <div class="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+
+                            <p>
+                                Copyright &copy; Tatvasoft All Rights Reserved.
+                            </p>
+
+                        </div>
+                        <div class="col-md-6 col-12 text-right">
+
+                            <ul class="social-list">
+                                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- footer ends -->
+    
+    <!-- JQuery -->
+    <script src="js/jquery.js"></script>
+    
+    <!-- Proper JS -->
+    <script src="js/popper.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body></html>
