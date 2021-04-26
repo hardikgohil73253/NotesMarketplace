@@ -1,0 +1,314 @@
+﻿@model NotesMarketplace.Models.UserProfile
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/NavbarAfter.cshtml";
+}
+
+@{
+    <style>
+        .form-error {
+            color: red;
+        }
+    </style>
+}
+
+<!-- User Profile Page -->
+<!-- Upper Section -->
+<section>
+    <div id="background-img-text">
+        <div class="centerh2">
+
+            <h2>User Profile</h2>
+
+        </div>
+    </div>
+</section>
+
+@using (Html.BeginForm("UserProfile", "UserProfile", FormMethod.Post, new { @class = "user-details-form", enctype = "multipart/form-data" }))
+{
+    <!-- Pesronal Detail -->
+    <section id="personal-details" class="user-profile content-box-md">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h3>Basic Profile Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- First Name -->
+                                <div class="form-group">
+                                    <label class="classlable">First Name*</label>
+                                    <!--<input type="text" class="form-control classinput" placeholder="Enter your First Name">-->
+                                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control classinput", @placeholder = "Enter your First Name" })
+                                    @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "form-error" })
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Last Name -->
+                                <div class="form-group">
+                                    <label class="classlable" for="classinput">Last Name*</label>
+                                    <!--<input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Last Name"> -->
+                                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control classinput", @placeholder = "Enter your Last Name" })
+                                    @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "form-error" })
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label class="classlable" for="classinput">Email*</label>
+                                    <!--<input type="email" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Email Address">-->
+                                    @Html.TextBoxFor(x => x.EmailID, new { @class = "form-control classinput", @placeholder = "Enter your Email Address" })
+                                    @Html.ValidationMessageFor(x => x.EmailID, "", new { @class = "form-error" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Date Of Birth -->
+                                <div class="form-group">
+                                    <label class="classlable">Date Of Birth</label>
+
+                                    <!-- Icon -->
+                                    <div class="wrapper">
+                                        <!--<input type="date" class="form-control classinput" placeholder="Enter your birth of date">-->
+                                        @Html.TextBoxFor(x => x.DateOfBirth, "{0:yyyy-MM-dd}", new { @class = "form-control classinput", @placeholder = "Enter your Birth of Date", @type = "date" })
+                                        <img src="~/Img/Front/user-profile/calendar.png" alt="show">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Gender -->
+                                <div class="form-group">
+                                    <label class="classlable">Gender</label>
+                                    @Html.DropDownListFor(x => x.Gender, new List<SelectListItem> {
+                                        new SelectListItem{Value="7", Text="Male"},
+                                        new SelectListItem{Value="8", Text="Female"},
+                                        new SelectListItem{Value="9", Text="Other"}
+                                    }, "Select your Gender", new { @class = "form-control inputselect" })
+                                    <!--<select class="form-control inputselect">
+                                        <option>Select your gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select> -->
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+
+                                <!-- Phone Number -->
+                                <div class="form-group">
+                                    <label class="classlable">Phone Number</label>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-5 col-3 col-xl-3 col-lg-4  nopadding">
+                                                <div class="marginright">
+
+                                                    @Html.DropDownListFor(x => x.CountryCode, new SelectList(ViewBag.CountryCode, "Value", "Text"), "Select Country", new { @class = "form-control inputselect" })
+                                                    <!--<select class="form-control inputselect">
+                                                        <option>+91</option>
+                                                    </select>-->
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 col-sm-7 col-9 col-xl-9 col-lg-8 nopadding">
+
+                                                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control classinput", @placeholder = "Enter your Phone Number" })
+                                                @Html.ValidationMessageFor(x => x.PhoneNumber, "", new { @class = "form-error" })
+                                                <!--<input type="email" class="form-control classinput" placeholder="Enter your phone number">-->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Picture -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="upload-profile-pic">
+                                        <label class="classlable" for="classinput">Profile Picture</label>
+
+
+                                        <!--<input type="file" class="form-control classinput" aria-describedby="emailHelp">-->
+                                        @Html.TextBoxFor(x => x.ProfilePicture, new { @class = "form-control classinput", @onchange = "return ProfilePictureValidation()", type = "file" , accept = ".jpg , .jpeg , .png" })
+                                        <div class="uploadmypic text-center">
+                                            <img class="img-fluid" src="~/Img/Front/user-profile/upload.png">
+                                            <h6>Upload a picture</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- User Detail Ends-->
+
+    <!-- Address Detail Section -->
+    <section id="Address-details" class="user-profile content-box-md">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="head">
+                            <h3>Address Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Address Line 1 -->
+                                <div class="form-group">
+                                    <label class="classlable">Address Line 1 *</label>
+                                    <!--<input type="text" class="form-control classinput" placeholder="Enter your address">-->
+                                    @Html.TextBoxFor(x => x.AddressLine1, new { @class = "form-control classinput", @placeholder = "Enter your address" })
+                                    @Html.ValidationMessageFor(x => x.AddressLine1, "", new { @class = "form-error" })
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Address Line 2 -->
+                                <div class="form-group">
+                                    <label class="classlable" for="classinput">Address Line 2 *</label>
+                                    <!--<input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your address">-->
+                                    @Html.TextBoxFor(x => x.AddressLine2, new { @class = "form-control classinput", @placeholder = "Enter your address" })
+                                    @Html.ValidationMessageFor(x => x.AddressLine2, "", new { @class = "form-error" })
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- City -->
+                                <div class="form-group">
+                                    <label class="classlable" for="classinput">City *</label>
+                                    <!--<input type="email" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your city">-->
+                                    @Html.TextBoxFor(x => x.City, new { @class = "form-control classinput", @placeholder = "Enter your city" })
+                                    @Html.ValidationMessageFor(x => x.City, "", new { @class = "form-error" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- State -->
+                                <div class="form-group">
+                                    <label class="classlable">State *</label>
+                                    <!--<input type="email" class="form-control classinput" placeholder="Enter your State">-->
+                                    @Html.TextBoxFor(x => x.State, new { @class = "form-control classinput", @placeholder = "Enter your state" })
+                                    @Html.ValidationMessageFor(x => x.State, "", new { @class = "form-error" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <!-- ZipCode -->
+                                <div class="form-group">
+                                    <label class="classlable">ZipCode *</label>
+                                    <!--<input type="email" class="form-control classinput" placeholder="Enter your zipcode">-->
+                                    @Html.TextBoxFor(x => x.ZipCode, new { @class = "form-control classinput", @placeholder = "Enter your zipcode" })
+                                    @Html.ValidationMessageFor(x => x.ZipCode, "", new { @class = "form-error" })
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+
+                                <!-- Country -->
+                                <div class="form-group">
+                                    <label class="classlable">Country *</label>
+                                    @Html.DropDownListFor(x => x.CountryID, new SelectList(ViewBag.CountryName, "Value", "Text"), "Select your country", new { @class = "form-control inputselect" })
+
+                                    <!--<select class="form-control inputselect">
+                                        <option>Select your country</option>
+                                        <option>India</option>
+                                    </select>-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--  Address Detail Ends -->
+
+    <!-- Academic Detail Section -->
+    <section id="study-details" class="user-profile content-box-md">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="head">
+                            <h3>University and College Details</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- University -->
+                                <div class="form-group">
+                                    <label class="classlable">University</label>
+                                    <!--<input type="text" class="form-control classinput" placeholder="Enter your University">-->
+                                    @Html.TextBoxFor(x => x.University, new {@class= "form-control classinput", @placeholder = "Enter your University" })
+                                    @Html.ValidationMessageFor(x => x.University, "", new {@class= "form-error" })
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <!-- College -->
+                                <div class="form-group">
+                                    <label class="classlable" for="classinput">College*</label>
+                                    <!--<input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your College">-->
+                                    @Html.TextBoxFor(x => x.College, new {@class= "form-control classinput", @placeholder = "Enter your College" })
+                                    @Html.ValidationMessageFor(x => x.College, "", new {@class= "form-error" })
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Login Button -->
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>submit</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--Academic Detail End-->
+}
+

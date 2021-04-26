@@ -14,7 +14,7 @@ body {
 #background-image {
     min-height: 100%;
     width: 100%;
-    overflow: scroll;
+    
     background-image: url("../img/pre-login/banner-with-overlay.jpg");
     background-size: cover;
     background-repeat: no-repeat;

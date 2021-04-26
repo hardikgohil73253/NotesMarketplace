@@ -1,0 +1,232 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<NotesMarketplace.SellerNotes>
+@{
+    ViewBag.Title = "SearchNotes";
+    Layout = "~/Views/Shared/NavbarAfter.cshtml";
+}
+
+<!-- First Section -->
+<section>
+    <div id="background-img-text">
+        <div class="centerh2">
+
+            <h2>Search Notes</h2>
+
+        </div>
+    </div>
+</section>
+
+<!-- Second Section -->
+<section id="search-filter-section" class="content-box-md">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Search and Filter notes</h3>
+            </div>
+        </div>
+
+        @using (Html.BeginForm("SearchNotes", "SearchNotes", FormMethod.Get))
+        {
+            <div class="div-filter">
+
+                <div class="row filter-upper">
+                    <div class="col-md-12">
+                        <div class="wrapper">
+                            <img src="~/Img/Front/Dashboard/search.jpg" class="searchBook Image">
+                            <input name="search" type="text" class="form-control search-bar classinput" placeholder=" Search notes here...">
+                        </div>
+                    </div>
+                </div>
+                <div class="row removeall">
+                    <div class="col-md-2 form-group">
+                        <!--<select class="form-control inputselect">
+
+                            <option>Select type</option>
+                            <option>Type 1</option>
+                            <option>Type 2</option>
+                            <option>Type 3</option>
+                        </select> -->
+                        @Html.DropDownList("ID", ViewBag.Type as SelectList, "Select Type", new { @class = "form-control inputselect", onchange = "this.form.submit();" })
+
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <!--<select class="form-control inputselect">
+                            <option>Select category</option>
+                            <option>Type 1</option>
+                            <option>Type 2</option>
+                            <option>Type 3</option>
+                        </select> -->
+                        @Html.DropDownList("ID", ViewBag.Category as SelectList, "Select Category", new { @class = "form-control inputselect", onchange = "this.form.submit();" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownList("UniversityName", ViewBag.Univercity as SelectList, "Select Univercity", new { @class = "form-control inputselect", onchange = "this.form.submit();" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownList("Course", ViewBag.Course as SelectList, "Select Course", new { @class = "form-control inputselect", onchange = "this.form.submit();" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownList("ID", ViewBag.Country as SelectList, "Select Country", new { @class = "form-control inputselect", onchange = "this.form.submit();" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.DropDownList("Rating", new List<SelectListItem> {
+                            new SelectListItem { Value = "1" , Text = "⭐ " },
+                            new SelectListItem { Value = "2" , Text = "⭐⭐ " },
+                            new SelectListItem { Value = "3" , Text = "⭐⭐⭐ " },
+                            new SelectListItem { Value = "4" , Text = "⭐⭐⭐⭐ " },
+                            new SelectListItem { Value = "5" , Text = "⭐⭐⭐⭐⭐ " },
+                        }, "Select Rating", new { @class = "form-control inputselect", onchange = "this.form.submit();" })
+                    </div>
+                </div>
+
+            </div>
+        }
+        <!-- form end -->
+
+    </div>
+</section>
+
+
+<!-- Boods Info -->
+<section id="searchpage-note" class="content-box-md">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Total <span>@ViewBag.TotalBooks</span> notes</h3>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model.Count() == 0)
+            {
+                <h4>No record found</h4>
+            }
+            @foreach (var item in Model)
+            {
+                <!-- Book  -->
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
+
+                    <div class="book-box">
+                        <!-- Book Image -->
+                        <img src="../@item.DisplayPicture" alt="Books" class="img-fluid">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+
+
+                                    <div class="book-box-content">
+
+                                        <!-- Book Name -->
+                                        <div class="book-title">
+                                            <h6><a href="@Url.Action("NoteDetails","NoteDetails",new { nid=item.ID})">@item.Title</a></h6>
+                                        </div>
+
+                                        <!-- Book Info -->
+                                        <div class="add-info">
+
+                                            @if (item.UniversityName == null)
+                                            {
+                                                <p class="sub-text"><i class="fa fa-university"></i> @item.Countries.Name,</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="sub-text"><i class="fa fa-university"></i> @item.UniversityName, @item.Countries.Name</p>
+                                            }
+                                            @if (item.NumberofPages == null)
+                                            {
+                                                <p class="sub-text"><i class="fa fa-book"></i> No. of Pages Not Avilable</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="sub-text"><i class="fa fa-book"></i> @item.NumberofPages Pages</p>
+                                            }
+                                            <p class="sub-text"><i class="fa fa-university"></i> @item.CreatedDate</p>
+                                            @if (item.TotalSpams == null || item.TotalSpams == 0)
+                                            {
+                                                <p class="inappropriate-mark"><i class="fa fa-flag"></i><span> 0 Users marked this note inappropriate</span></p>
+                                            }
+                                            else
+                                            {
+                                                <p class="inappropriate-mark"><i class="fa fa-flag"></i><span> @item.TotalSpams Users marked this note inappropriate</span></p>
+                                            }
+
+
+
+                                        </div>
+
+                                        <!-- Book Rating -->
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-xl-7 col-lg-8">
+
+                                                <div class="rate">
+                                                    @if (item.Rating == null)
+                                                    {
+                                                        item.Rating = 0;
+                                                    }
+
+                                                    <span class="stars-active" style="width:@item.Rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </span>
+                                                    <span class="stars-inactive">
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                            @if (item.TotalReviews == null)
+                                            {
+                                                item.TotalReviews = 0;
+                                            }
+                                            <div class="col-sm-12 col-md-12 col-xl-4 col-lg-4">
+                                                <div class="review-text">
+                                                    <p>@item.TotalReviews reviews</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Pagination -->
+
+<nav aria-label="Page navigation example">
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("SearchNotes", new { page, search = Request.QueryString["search"], NoteType = Request.QueryString["NoteType"], Category = Request.QueryString["Category"], UniversityName = Request.QueryString["UniversityName"], Course = Request.QueryString["Course"], Country = Request.QueryString["Country"], Rating = Request.QueryString["Rating"] }))
+                <!--<li class="page-item">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li class="page-item selected"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-right"></i></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Pagination Ends -->

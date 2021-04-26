@@ -1,0 +1,471 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model NotesMarketplace.Models.Dashboard
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/NavbarAfter.cshtml";
+}
+
+<!-- Dashboard -->
+<!-- Dashboard Head -->
+<section id="dashboard-upper">
+
+    <div class="container">
+
+        <!-- dashboard heading & add note button -->
+        <div class="row dashboard-upper-title">
+
+            <!-- Title -->
+            <div class="col-md-6 col-sm-12 col-12">
+                <div class="dashboard-heading">
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+
+            <!-- button -->
+            <div class="col-md-6 col-sm-12 col-12 text-right">
+                <!-- Profile Button -->
+                <button type="button" id="idbtn" class="btn text-uppercase text-center" onclick="location.href = '@Url.Action("AddNotes","AddNotes")'"><b>Add Notes</b></button>
+
+            </div>
+
+        </div>
+
+        <!-- Dashboard content -->
+        <div class="dashboard-content">
+            <div class="row">
+
+                <!-- left -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 rmvpadding">
+
+                    <div class="row left-earning">
+                        <!-- Earning -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="myearning">
+                                <img src="~/Img/Front/home/download.png" alt="earning">
+                                <h5>My Earning</h5>
+                            </div>
+                        </div>
+
+                        <!-- number of notes -->
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-12">
+
+                            <div class="row">
+
+                                <!-- Number of notes sell -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="dash-left text-center">
+                                        <!-- <h4><b>100</b></h4> -->
+                                        <a href="@Url.Action("MySoldNotes","MySoldNotes")" style="text-decoration:none;"><h3>@ViewBag.SoldNotes</h3></a>
+                                        <p>Number Of Sold Notes</p>
+                                    </div>
+                                </div>
+
+
+                                <!-- Money Earned  -->
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="dash-left text-center">
+                                        <h4><b>₹ @ViewBag.Earning</b></h4>
+                                        <p>Money Earned</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="row note-info">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div>
+
+                                <!-- Number of notes sell -->
+                                <div class="right-dash text-center">
+                                    <!-- <h4><b>38</b></h4> -->
+                                    <a href="@Url.Action("MyDownloads","MyDownloads")" style="text-decoration:none;"><h3>@ViewBag.DownloadNotes</h3></a>
+                                    <p>My Downloads</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+
+                            <!-- Number of notes sell -->
+                            <div class="right-dash text-center">
+                                <a href="@Url.Action("MyRejectedNotes","MyRejectedNotes")" style="text-decoration:none;"><h3>@ViewBag.RejectedNotes</h3></a>
+                                <p>My Rejected Notes</p>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+
+                            <!-- Number of notes sell -->
+                            <div class="right-dash text-center">
+                                <!-- h4><b>102</b></!--h4> -->
+                                <a href="@Url.Action("BuyerRequest","BuyerRequest")" style="text-decoration:none;"><h3>@ViewBag.BuyerRequests</h3></a>
+                                <p>Buys Request</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Dashboard Head Ends -->
+<!-- Dashboard Progress -->
+<section id="dashboard-progress">
+    <div class="container">
+
+        @using (Html.BeginForm("Dashboard", "Dashboard", new { search2 = Request.QueryString["search2"], sortby2 = Request.QueryString["sortby2"] }, FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-6">
+                    <h3>In Progress Notes</h3>
+                </div>
+                <div class="col-12 col-sm-12 col-md-8 col-lg-6">
+                    <div class="row justify-content-end">
+                        <div class="wrapper">
+                            <img src="~/Img/Front/Dashboard/search.jpg" class="searchimage doup">
+                            <input type="text" class="form-control search-bar classinput" placeholder="Search" name="search">
+                        </div>
+                        <div class="btn-merge">
+                            <button class="btn text-uppercase text-center" id="idbtn"><b>Search</b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="align-middle">@Html.ActionLink("ADDED DATE", "Dashboard", new { sortby = ViewBag.SortDate, search = Request.QueryString["search"], search2 = Request.QueryString["search2"], sortby2 = Request.QueryString["sortby2"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("TITLE", "Dashboard", new { sortby = ViewBag.SortTitle, search = Request.QueryString["search"], search2 = Request.QueryString["search2"], sortby2 = Request.QueryString["sortby2"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("CATEGORY", "Dashboard", new { sortby = ViewBag.SortCategory, search = Request.QueryString["search"], search2 = Request.QueryString["search2"], sortby2 = Request.QueryString["sortby2"] })</th>
+                                <th scope="col" class="align-middle">STATUS</th>
+                                <th scope="col" class="align-middle">ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Progress.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center">No record found</td>
+                                </tr>
+                            }
+                            @foreach (var item in Model.Progress)
+                            {
+                                <tr>
+                                    <td class="align-middle">@item.CreatedDate.Value.ToShortDateString()</td>
+                                    <td class="align-middle">@item.Title</td>
+                                    <td class="align-middle">@item.NoteCategories.Name</td>
+                                    <td class="align-middle">@item.ReferenceData.Value</td>
+                                    @if (item.ReferenceData.Value == "Draft")
+                                    {
+                                        <td class="align-middle">
+                                            <div class="row">
+                                                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                                                    <a href="@Url.Action("AddNotes","AddNotes", new { id = item.ID })"><img src="~/Img/Front/Dashboard/edit.png" alt="Edit"></a>
+                                                </div>
+                                                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                                                    <a href="@Url.Action("DeleteBook", new { noteid = item.ID})"><img src="~/Img/Front/Dashboard/delete.png" alt="Delete"></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <div class="row text-center">
+                                                <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                                    <a href="@Url.Action("NoteDetails","NoteDetails", new { id = item.ID, style="text-align:center;" })"><img src="~/Img/Front/Dashboard/eye.png" alt="View"></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+
+                            <!--
+                            <tr>
+                                <td class="align-middle">09-10-2020</td>
+                                <td class="align-middle">Data Science</td>
+                                <td class="align-middle">Science</td>
+                                <td class="align-middle">Draft</td>
+                                <td class="align-middle">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                                            <a href="#"><img src="img/Dashboard/edit.png" alt="Edit"></a>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                                            <a href="#"><img src="img/Dashboard/delete.png" alt="Delete"></a>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="align-middle">10-10-2020</td>
+                                <td class="align-middle">Accounts</td>
+                                <td class="align-middle">Commerce</td>
+                                <td class="align-middle">In Review</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">11-10-2020</td>
+                                <td class="align-middle">Social Studies</td>
+                                <td class="align-middle">Social</td>
+                                <td class="align-middle">Submitted</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">12-10-2020</td>
+                                <td class="align-middle">AI</td>
+                                <td class="align-middle">IT</td>
+                                <td class="align-middle">Submitted</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="img/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">13-10-2020</td>
+                                <td class="align-middle">Lorem ipsum dolor sit amet, </td>
+                                <td class="align-middle">Lorem</td>
+                                <td class="align-middle">Draft</td>
+                                <td class="align-middle">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                                            <a href="#"><img src="img/Dashboard/edit.png" alt="Edit"></a>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                                            <a href="#"><img src="img/Dashboard/delete.png" alt="Delete"></a>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- Dashboard Progress -->
+<!-- Pagination -->
+<nav>
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+            <ul class="pagination">
+                @Html.PagedListPager(Model.Progress, page => Url.Action("Dashboard", new { page, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"], search2 = Request.QueryString["search2"], sortby2 = Request.QueryString["sortby2"] }))
+                <!--
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li class="page-item selected"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-right"></i></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Pagination Ends -->
+<!-- Dashboard Publish -->
+<section id="table-details-section">
+    <div class="container">
+
+        @using (Html.BeginForm("Dashbord", "Dashbord", new { search = Request.QueryString["search"], sortby = Request.QueryString["sortby"] }, FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Published Notes</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="row justify-content-end">
+                        <div class="wrapper">
+                            <img src="~/Img/Front/Dashboard/search.jpg" class="searchimage doup">
+                            <input type="text" class="form-control search-bar classinput" placeholder="Search" name="search2">
+                        </div>
+                        <div class="btn-merge">
+                            <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>Search</b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="align-middle">@Html.ActionLink("ADDED DATE", "Dashboard", new { sortby2 = ViewBag.SortDate2, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"], search2 = Request.QueryString["search2"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("TITLE", "Dashboard", new { sortby2 = ViewBag.SortTitle2, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"], search2 = Request.QueryString["search2"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("CATEGORY", "Dashboard", new { sortby2 = ViewBag.SortCategory2, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"], search2 = Request.QueryString["search2"] })</th>
+                                <th scope="col" class="align-middle">SELL TYPE</th>
+                                <th scope="col" class="align-middle">PRICE</th>
+                                <th scope="col" class="align-middle">ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Published.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center">No record found</td>
+                                </tr>
+                            }
+                            @foreach (var item in Model.Published)
+                            {
+                                <tr>
+                                    <td class="align-middle">@item.CreatedDate.Value.ToShortDateString()</td>
+                                    <td class="align-middle">@item.Title</td>
+                                    <td class="align-middle">@item.NoteCategories.Name</td>
+                                    @if (item.IsPaid)
+                                    {
+                                        <td class="align-middle">Paid</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="align-middle">Free</td>
+                                    }
+                                    <td class="align-middle">₹ @item.SellingPrice</td>
+                                    <td class="align-middle">
+                                        <div class="row text-center">
+                                            <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                                <a href="@Url.Action("NoteDetails","NoteDetails", new { nid = item.ID })"><img src="~/Img/Front/Dashboard/eye.png" alt="View"></a>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+                            <!--<tr>
+                                <td class="align-middle">10-10-2020</td>
+                                <td class="align-middle">Accounts</td>
+                                <td class="align-middle">Commerce</td>
+                                <td class="align-middle">Free</td>
+                                <td class="align-middle">$0</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="~/Img/Front/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">11-10-2020</td>
+                                <td class="align-middle">Social Studies</td>
+                                <td class="align-middle">Social</td>
+                                <td class="align-middle">Free</td>
+                                <td class="align-middle">$0</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="~/Img/Front/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">12-10-2020</td>
+                                <td class="align-middle">AI</td>
+                                <td class="align-middle">IT</td>
+                                <td class="align-middle">Paid</td>
+                                <td class="align-middle">$3442</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="~/Img/Front/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">13-10-2020</td>
+                                <td class="align-middle">Lorem ipsum dolor sit amet, </td>
+                                <td class="align-middle">Lorem</td>
+                                <td class="align-middle">Free</td>
+                                <td class="align-middle">$0</td>
+                                <td class="align-middle">
+                                    <div class="row text-center">
+                                        <div class="col-11 col-sm-11 col-md-9 col-lg-7">
+                                            <a href="#"><img src="~/Img/Front/Dashboard/eye.png" alt="View"></a>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- Dashboard Publish Ends -->
+<!-- Pagination -->
+<nav>
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+            <ul class="pagination">
+                @Html.PagedListPager(Model.Published, page2 => Url.Action("Dashboard", new { page2, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"], search2 = Request.QueryString["search2"], sortby2 = Request.QueryString["sortby2"] }))
+                <!--
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li class="page-item selected"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-right"></i></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>@ViewBag.Title</title>
+
+    <!-- Icon -->
+    <link rel="Icon" href="~/Img/Front/favicon/favicon.ico">
+
+    <!-- Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/Front/css/font-awesome/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/Front/css/bootstrap/bootstrap.min.css">
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="~/Content/Front/css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/Front/css/responsive.css">
+
+</head>
+
+<body data-target=".navbar">
+
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg white-nav-top white-navbar">
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <!-- Mobile Menu Open Button -->
+                    <span id="mobile-nav-open-btn">&#9776;</span>
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href=""><img class="img-fluid" src="~/Img/Front/pre-login/Capture.png"></a>
+                </div>
+
+                <!-- Main Menu -->
+                <div class="collapse navbar-collapse justify-content-end default-header" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("SearchNotes","SearchNotes")"><span>Search Notes</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Dashboard","Dashboard")"><span>Sell Your Notes</span></a>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("BuyerRequest", "BuyerRequest")"><span>Buyer Requests</span></a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("FAQ","FAQ")"><span>FAQ</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("ContactUs","ContactUs")"><span>Contact Us</span></a>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <div class="userprofile-user-icon dropdown">
+                                    <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"> <img src="~/Img/Front/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User"></a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="@Url.Action("UserProfile", "UserProfile")">My Profile</a>
+                                        <a class="dropdown-item" href="@Url.Action("MyDownloads", "MyDownloads")">My Downloads</a>
+                                        <a class="dropdown-item" href="@Url.Action("MySoldNotes", "MySoldNotes")">My Sold Notes</a>
+                                        <a class="dropdown-item" href="#">My Rejected Notes</a>
+                                        <a class="dropdown-item" href="@Url.Action("ChangePassword", "SignUp")">Change Password</a>
+                                        <a class="dropdown-item givecolor" href="@Url.Action("Logout", "SignUp")">LOGOUT</a>
+                                    </div>
+                                </div>
+
+                            </li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" id="mynavbtn" type="submit" href="@Url.Action("Logout","SignUp")">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" id="mynavbtn" type="submit" href="@Url.Action("Login","SignUp")">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-nav">
+                    <!-- Mobile Menu Close Button -->
+                    <span id="mobile-nav-close-btn">&times;</span>
+
+                    <div id="mobile-nav-content">
+                        <ul class="navbar-nav">
+                            <li>
+                                <a href="@Url.Action("SearchNotes","SearchNotes")"><span>Search Notes</span></a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Dashboard","Dashboard")"><span>Sell Your Notes</span></a>
+                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    <a href="@Url.Action("BuyerRequest", "BuyerRequest")"><span>Buyer Requests</span></a>
+                                </li>
+                            }
+                            <li>
+                                <a href="@Url.Action("FAQ","FAQ")"><span>FAQ</span></a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("ContactUs","ContactUs")"><span>Contact Us</span></a>
+                            </li>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <div class="userprofile-user-icon dropdown">
+                                        <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"> <img src="~/Img/Front/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User"></a>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="@Url.Action("UserProfile", "UserProfile")">My Profile</a>
+                                            <a class="dropdown-item" href="@Url.Action("MyDownloads", "MyDownloads")">My Downloads</a>
+                                            <a class="dropdown-item" href="@Url.Action("MySoldNotes", "MySoldNotes")">My Sold Notes</a>
+                                            <a class="dropdown-item" href="#">My Rejected Notes</a>
+                                            <a class="dropdown-item" href="@Url.Action("ChangePassword", "SignUp")">Change Password</a>
+                                            <a class="dropdown-item givecolor" href="@Url.Action("Logout", "SignUp")">LOGOUT</a>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    <button type="submit" class="btn text-center" id="mynavbtn" onclick="location.href = '@Url.Action("Logout", "SignUp")'">Logout</button>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <button type="submit" class="btn text-center" id="mynavbtn" onclick="location.href = '@Url.Action("Login", "SignUp")'">Logout</button>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <!-- footer -->
+    <footer>
+
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+
+                        <p>
+                            Copyright &copy; Tatvasoft All Rights Reserved.
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 col-12 text-right">
+
+                        <ul class="social-list">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- footer ends -->
+    <!-- User Profile End -->
+    <!-- JQuery -->
+    <script src="~/Script/Front/jquery.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Script/Front/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/Script/Front/script.js"></script>
+    <script src="~/Script/jquery.validate.min.js"></script>
+    <script src="~/Script/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+﻿@model NotesMarketplace.Models.UsersModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+
+    <!-- Title -->
+    <title>Sign Up</title>
+
+    <!-- Icon -->
+    <link rel="Icon" href="img/favicon/favicon.ico">
+
+    <!-- Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/Front/css/bootstrap/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/Front/css/font-awesome/css/font-awesome.min.css">
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="~/Content/Front/css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/Front/css/responsive.css">
+
+    <style>
+        .form-error{
+            color:red;
+        }
+    </style>
+
+</head>
+
+<body class="fullsize">
+
+    <!-- SignUp Page-->
+    <section id="background-image">
+        <div id="signup-page" class="container">
+
+            <!-- LOGO -->
+            <div class="row justify-content-center">
+                <div id="signuplogo" class="text-center col-md-6 col-12 col-sm-12">
+
+                    <img src="~/Img/Front/pre-login/top-logo.png" class="img-fluid" alt="Loin">
+                </div>
+            </div>
+
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-12 col-sm-11 col-lg-9 col-xl-8">
+                    <div id="signup-form">
+
+                        <!-- Head Section -->
+                        <div id="signup-head" class="text-center">
+                            <h2>Create an Account</h2>
+                            <p>Enter your details to signup</p>
+                        </div>
+
+                        <div class="text-center text2">
+
+                            @if (TempData["Success"] != null)
+                            {
+                                <p><span><i class="fa fa-check-circle"></i> Your account has been successfully created.</span></p>
+                            }
+                        </div>
+                        <!-- Form -->
+                        <!-- <form>  -->
+                        @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            <!-- First Name -->
+                            <div class="form-group">
+                                <label class="classlable" for="classinput">First Name *</label>
+                                <!-- <input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your First Name"> -->
+
+                                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control classinput", @placeholder = "Enter your First Name" })
+                                @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "form-error" })
+                            </div>
+                            
+
+                            <!-- Last Name -->
+                            <div class="form-group">
+                                <label class="classlable" for="classinput">Last Name *</label>
+                                <!-- <input type="text" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Last Name"> -->
+                                
+                                @Html.TextBoxFor(x => x.LastName, new { @class = "form-control classinput", @placeholder = "Enter your Last Name" })
+                                @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "form-error" })
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label class="classlable" for="classinput">Email *</label>
+                                <!-- <input type="email" class="form-control classinput" aria-describedby="emailHelp" placeholder="Enter your Email Address"> -->
+                                
+                                @Html.TextBoxFor(x => x.EmailID, new { @class = "form-control classinput", @placeholder = "Enter your Email Address" })
+                                @Html.ValidationMessageFor(x => x.EmailID, "", new { @class = "form-error" })
+                            </div>
+
+                            <!-- Password-->
+                            <div class="form-group">
+                                <label class="classlable InputPassword1">Password</label>
+
+                                <!-- Icon -->
+                                <div class="wrapper">
+                                    <!--<input type="password" class="form-control classinput InputPassword1" placeholder="Enter your password" id="signup-pass-new-1"> -->
+
+                                    @Html.PasswordFor(x => x.Password, new { @class = "form-control classinput InputPassword1", @id = "signup-pass-new-1", @placeholder = "Enter your password" })
+                                    <span toggle="#signup-pass-new-1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    
+
+                                </div>
+                                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "form-error" })
+                            </div>
+
+                            <!-- Confirm Password-->
+                            <div class="form-group">
+                                <label class="classlable InputPassword1">Confirm Password</label>
+                                <!-- Icon -->
+                                <div class="wrapper">
+                                    <!-- <input type="password" class="form-control classinput extra InputPassword1" placeholder="Re-enter your password" id="signup-pass-new-2"> -->
+                                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control classinput extra InputPassword1", @id = "signup-pass-new-2", @placeholder = "Re-enter your password" })
+                                    <span toggle="#signup-pass-new-2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    
+
+                                </div>
+                                @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "form-error" })
+                            </div>
+
+                            <!-- LOGIN Button -->
+                            <button type="submit" class="btn text-center" id="idbtn"><b>SIGN UP</b></button>
+                        }
+                        <!-- </form> -->
+
+                        <p class="text-center mytext">Already have an account? <span><a href="@Url.Action("Login","SignUp")">Login</a></span></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SignUp Page End -->
+    <!-- JQuery -->
+    <script src="~/Script/Front/jquery.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Script/Front/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/Script/Front/script.js"></script>
+
+    <script src="~/Script/jquery.validate.min.js"></script>
+    <script src="~/Script/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
