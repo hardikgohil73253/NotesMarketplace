@@ -14,6 +14,8 @@
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Int32" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="NotesMarketplaceModel.FK_Admin_Users" FromRole="Admin" ToRole="Users" />
   </EntityType>
   <EntityType Name="ContactUs">
     <Key>
@@ -69,7 +71,6 @@
     <NavigationProperty Name="Users" Relationship="Self.FK_Downloads_Users" FromRole="Downloads" ToRole="Users" />
     <NavigationProperty Name="Users1" Relationship="Self.FK_Downloads_Users1" FromRole="Downloads" ToRole="Users" />
     <NavigationProperty Name="SellerNotesReportedIssues" Relationship="Self.FK_SellerNotesReportedIssues_Downloads" FromRole="Downloads" ToRole="SellerNotesReportedIssues" />
-    <NavigationProperty Name="SellerNotesReviews" Relationship="Self.FK_SellerNotesReviews_Downloads" FromRole="Downloads" ToRole="SellerNotesReviews" />
   </EntityType>
   <EntityType Name="NoteCategories">
     <Key>
@@ -164,9 +165,11 @@
     <NavigationProperty Name="ReferenceData" Relationship="Self.FK_SellerNotes_ReferenceData" FromRole="SellerNotes" ToRole="ReferenceData" />
     <NavigationProperty Name="RejectedNote" Relationship="Self.FK_RejectedNote_SellerNotes" FromRole="SellerNotes" ToRole="RejectedNote" />
     <NavigationProperty Name="Users" Relationship="Self.FK_SellerNotes_Users" FromRole="SellerNotes" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.FK_SellerNotes_Users1" FromRole="SellerNotes" ToRole="Users" />
     <NavigationProperty Name="SellerNotesAttachements" Relationship="Self.FK_SellerNotesAttachements_SellerNotes" FromRole="SellerNotes" ToRole="SellerNotesAttachements" />
     <NavigationProperty Name="SellerNotesReportedIssues" Relationship="Self.FK_SellerNotesReportedIssues_SellerNotes" FromRole="SellerNotes" ToRole="SellerNotesReportedIssues" />
     <NavigationProperty Name="SellerNotesReviews" Relationship="Self.FK_SellerNotesReviews_SellerNotes" FromRole="SellerNotes" ToRole="SellerNotesReviews" />
+    <NavigationProperty Name="SpamTable" Relationship="Self.FK_SpamTable_SpamTable" FromRole="SellerNotes" ToRole="SpamTable" />
     <NavigationProperty Name="Transection" Relationship="Self.FK_Transection_SellerNotes" FromRole="SellerNotes" ToRole="Transection" />
   </EntityType>
   <EntityType Name="SellerNotesAttachements">
@@ -216,9 +219,19 @@
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Int32" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Downloads" Relationship="Self.FK_SellerNotesReviews_Downloads" FromRole="SellerNotesReviews" ToRole="Downloads" />
     <NavigationProperty Name="SellerNotes" Relationship="Self.FK_SellerNotesReviews_SellerNotes" FromRole="SellerNotesReviews" ToRole="SellerNotes" />
     <NavigationProperty Name="Users" Relationship="Self.FK_SellerNotesReviews_Users" FromRole="SellerNotesReviews" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="SpamTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoteID" Type="Int32" Nullable="false" />
+    <Property Name="SpamBy" Type="Int32" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SellerNotes" Relationship="Self.FK_SpamTable_SpamTable" FromRole="SpamTable" ToRole="SellerNotes" />
   </EntityType>
   <EntityType Name="SystemConfigurations">
     <Key>
@@ -241,7 +254,7 @@
     <Property Name="NoteID" Type="Int32" Nullable="false" />
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="BuyerID" Type="Int32" Nullable="false" />
     <Property Name="SellerID" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -250,6 +263,7 @@
     <Property Name="IsAllowed" Type="Boolean" />
     <Property Name="IsDownloaded" Type="Boolean" />
     <Property Name="DownloadDate" Type="DateTime" Precision="3" />
+    <Property Name="IsPaid" Type="Boolean" />
     <NavigationProperty Name="SellerNotes" Relationship="Self.FK_Transection_SellerNotes" FromRole="Transection" ToRole="SellerNotes" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Transection_Users" FromRole="Transection" ToRole="Users" />
     <NavigationProperty Name="Users1" Relationship="Self.FK_Transection_Users1" FromRole="Transection" ToRole="Users" />
@@ -278,10 +292,10 @@
     <Property Name="CreatedBy" Type="Int32" />
     <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
     <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Countries" Relationship="Self.FK_UserProfile_Countries" FromRole="UserProfile" ToRole="Countries" />
     <NavigationProperty Name="ReferenceData" Relationship="Self.FK_UserProfile_ReferenceData" FromRole="UserProfile" ToRole="ReferenceData" />
     <NavigationProperty Name="Users" Relationship="Self.FK_UserProfile_Users" FromRole="UserProfile" ToRole="Users" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="UserRoles">
     <Key>
@@ -317,12 +331,14 @@
     <NavigationProperty Name="Downloads" Relationship="Self.FK_Downloads_Users" FromRole="Users" ToRole="Downloads" />
     <NavigationProperty Name="Downloads1" Relationship="Self.FK_Downloads_Users1" FromRole="Users" ToRole="Downloads" />
     <NavigationProperty Name="SellerNotes" Relationship="Self.FK_SellerNotes_Users" FromRole="Users" ToRole="SellerNotes" />
+    <NavigationProperty Name="SellerNotes1" Relationship="Self.FK_SellerNotes_Users1" FromRole="Users" ToRole="SellerNotes" />
     <NavigationProperty Name="SellerNotesReportedIssues" Relationship="Self.FK_SellerNotesReportedIssues_Users" FromRole="Users" ToRole="SellerNotesReportedIssues" />
     <NavigationProperty Name="SellerNotesReviews" Relationship="Self.FK_SellerNotesReviews_Users" FromRole="Users" ToRole="SellerNotesReviews" />
     <NavigationProperty Name="Transection" Relationship="Self.FK_Transection_Users" FromRole="Users" ToRole="Transection" />
     <NavigationProperty Name="Transection1" Relationship="Self.FK_Transection_Users1" FromRole="Users" ToRole="Transection" />
     <NavigationProperty Name="UserProfile" Relationship="Self.FK_UserProfile_Users" FromRole="Users" ToRole="UserProfile" />
     <NavigationProperty Name="UserRoles" Relationship="Self.FK_Users_UserRoles" FromRole="Users" ToRole="UserRoles" />
+    <NavigationProperty Name="Admin" Relationship="NotesMarketplaceModel.FK_Admin_Users" FromRole="Users" ToRole="Admin" />
   </EntityType>
   <Association Name="FK_SellerNotes_Countries">
     <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
@@ -393,18 +409,6 @@
       </Principal>
       <Dependent Role="SellerNotesReportedIssues">
         <PropertyRef Name="AgainstDownloadID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SellerNotesReviews_Downloads">
-    <End Role="Downloads" Type="Self.Downloads" Multiplicity="1" />
-    <End Role="SellerNotesReviews" Type="Self.SellerNotesReviews" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Downloads">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="SellerNotesReviews">
-        <PropertyRef Name="AgainstDownloadsID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -480,6 +484,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SellerNotes_Users1">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SellerNotes" Type="Self.SellerNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SellerNotes">
+        <PropertyRef Name="ActionedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SellerNotesAttachements_SellerNotes">
     <End Role="SellerNotes" Type="Self.SellerNotes" Multiplicity="0..1" />
     <End Role="SellerNotesAttachements" Type="Self.SellerNotesAttachements" Multiplicity="*" />
@@ -512,6 +528,18 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="SellerNotesReviews">
+        <PropertyRef Name="NoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpamTable_SpamTable">
+    <End Role="SellerNotes" Type="Self.SellerNotes" Multiplicity="1" />
+    <End Role="SpamTable" Type="Self.SpamTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SellerNotes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SpamTable">
         <PropertyRef Name="NoteID" />
       </Dependent>
     </ReferentialConstraint>
@@ -613,6 +641,7 @@
     <EntitySet Name="SellerNotesAttachements" EntityType="Self.SellerNotesAttachements" />
     <EntitySet Name="SellerNotesReportedIssues" EntityType="Self.SellerNotesReportedIssues" />
     <EntitySet Name="SellerNotesReviews" EntityType="Self.SellerNotesReviews" />
+    <EntitySet Name="SpamTable" EntityType="Self.SpamTable" />
     <EntitySet Name="SystemConfigurations" EntityType="Self.SystemConfigurations" />
     <EntitySet Name="Transection" EntityType="Self.Transection" />
     <EntitySet Name="UserProfile" EntityType="Self.UserProfile" />
@@ -642,10 +671,6 @@
       <End Role="Downloads" EntitySet="Downloads" />
       <End Role="SellerNotesReportedIssues" EntitySet="SellerNotesReportedIssues" />
     </AssociationSet>
-    <AssociationSet Name="FK_SellerNotesReviews_Downloads" Association="Self.FK_SellerNotesReviews_Downloads">
-      <End Role="Downloads" EntitySet="Downloads" />
-      <End Role="SellerNotesReviews" EntitySet="SellerNotesReviews" />
-    </AssociationSet>
     <AssociationSet Name="FK_SellerNotes_NoteCategories" Association="Self.FK_SellerNotes_NoteCategories">
       <End Role="NoteCategories" EntitySet="NoteCategories" />
       <End Role="SellerNotes" EntitySet="SellerNotes" />
@@ -670,6 +695,10 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="SellerNotes" EntitySet="SellerNotes" />
     </AssociationSet>
+    <AssociationSet Name="FK_SellerNotes_Users1" Association="Self.FK_SellerNotes_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SellerNotes" EntitySet="SellerNotes" />
+    </AssociationSet>
     <AssociationSet Name="FK_SellerNotesAttachements_SellerNotes" Association="Self.FK_SellerNotesAttachements_SellerNotes">
       <End Role="SellerNotes" EntitySet="SellerNotes" />
       <End Role="SellerNotesAttachements" EntitySet="SellerNotesAttachements" />
@@ -681,6 +710,10 @@
     <AssociationSet Name="FK_SellerNotesReviews_SellerNotes" Association="Self.FK_SellerNotesReviews_SellerNotes">
       <End Role="SellerNotes" EntitySet="SellerNotes" />
       <End Role="SellerNotesReviews" EntitySet="SellerNotesReviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpamTable_SpamTable" Association="Self.FK_SpamTable_SpamTable">
+      <End Role="SellerNotes" EntitySet="SellerNotes" />
+      <End Role="SpamTable" EntitySet="SpamTable" />
     </AssociationSet>
     <AssociationSet Name="FK_Transection_SellerNotes" Association="Self.FK_Transection_SellerNotes">
       <End Role="SellerNotes" EntitySet="SellerNotes" />
@@ -710,5 +743,21 @@
       <End Role="UserRoles" EntitySet="UserRoles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <AssociationSet Name="FK_Admin_Users" Association="NotesMarketplaceModel.FK_Admin_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Admin" EntitySet="Admin" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_Admin_Users">
+    <End Type="NotesMarketplaceModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="NotesMarketplaceModel.Admin" Role="Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

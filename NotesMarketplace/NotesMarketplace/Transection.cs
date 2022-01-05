@@ -18,7 +18,7 @@ namespace NotesMarketplace
         public int NoteID { get; set; }
         public string Title { get; set; }
         public string Category { get; set; }
-        public int Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public int BuyerID { get; set; }
         public int SellerID { get; set; }
         public string Status { get; set; }
@@ -27,6 +27,7 @@ namespace NotesMarketplace
         public Nullable<bool> IsAllowed { get; set; }
         public Nullable<bool> IsDownloaded { get; set; }
         public Nullable<System.DateTime> DownloadDate { get; set; }
+        public Nullable<bool> IsPaid { get; set; }
     
         public virtual SellerNotes SellerNotes { get; set; }
         public virtual Users Users { get; set; }

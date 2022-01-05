@@ -1,0 +1,118 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<NotesMarketplace.Models.ManageAdministrator>
+
+@{
+    ViewBag.Title = "ManageAdmin";
+    Layout = "~/Views/Shared/AdminNavbar.cshtml";
+}
+
+<!--Manage Admin -->
+<section id="manage-details" class="manage-details-alter">
+    <div class="container">
+        <div class="row top-table">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <h3>Manage Administrator</h3>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+
+                <button class="btn text-uppercase text-center addbutton" id="" onclick="location.href='@Url.Action("AddAdmin","AddAdmin")'"><b>Add Administrator</b></button>
+
+            </div>
+            @using (Html.BeginForm("ManageAdmin", "Admin", FormMethod.Get))
+            {
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="row justify-content-end">
+                        <div class="wrapper">
+                            <img src="~/Img/Admin/Dashboard/search.jpg" class="searchimage doup">
+                            <input type="text" class="form-control search-bar classinput" placeholder="Search">
+                        </div>
+                        <div class="btn-merge">
+                            <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>Search</b></button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="align-middle text-center">SR NO.</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("FIRST NAME", "ManageAdmin", new { sortby = ViewBag.SortFirstName, search = Request.QueryString["search"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("LAST NAME", "ManageAdmin", new { sortby = ViewBag.SortLastName, search = Request.QueryString["search"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("EMAIL", "ManageAdmin", new { sortby = ViewBag.SortEmail, search = Request.QueryString["search"] })</th>
+                                <th scope="col" class="align-middle">PHONE NO.</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("DATE ADDED", "ManageAdmin", new { sortby = ViewBag.SortDate, search = Request.QueryString["search"] })</th>
+                                <th scope="col" class="align-middle">ACTIVE</th>
+                                <th scope="col" class="align-middle">ACTION</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="8" class="text-center">No record found</td>
+                                </tr>
+                            }
+                            @{ int c = 0; }
+                            @foreach (var item in Model)
+                            {
+                                c += 1;
+                                <tr>
+                                    <td class="align-middle text-center">@c</td>
+                                    <td class="align-middle">@item.FirstName</td>
+                                    <td class="align-middle">@item.LastName</td>
+                                    <td class="align-middle">@item.Email</td>
+                                    <td class="align-middle">@item.PhoneNumber</td>
+                                    @if (item.CreatedDate!=null)
+                                    {
+                                        <td class="align-middle">@item.CreatedDate.Value.ToShortDateString()</td>
+                                    }
+                                    else
+                                    { 
+                                        <td class="align-middle"></td>
+                                    }
+                                    @if (item.IsActive)
+                                    {
+                                        <td class="align-middle text-center">Yes</td>
+                                        <td class="align-middle">
+                                            <a href="@Url.Action("EditAdmin","Admin", new { uid = item.UserID })"><img src="~/Img/Admin/images/edit.png" ></a>
+                                            <a href="@Url.Action("UpdateAdminStatus","Admin", new { uid = item.UserID, status = 0 })"><img src="~/Img/Admin/images/delete.png" class="leftmar" ></a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="align-middle text-center">No</td>
+                                        <td class="align-middle">
+                                            <a href="@Url.Action("EditAdmin","Admin", new { uid = item.UserID })"><img src="~/Img/Admin/images/edit.png" ></a>
+                                            <a href="@Url.Action("UpdateAdminStatus","Admin", new { uid = item.UserID, status = 01 })"><img src="~/Img/Admin/images/delete.png" class="leftmar" ></a>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pagination -->
+<nav>
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("ManageAdmin", new { page, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"] }))
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Pagination Ends-->

@@ -20,11 +20,13 @@ namespace NotesMarketplace
             this.Downloads = new HashSet<Downloads>();
             this.Downloads1 = new HashSet<Downloads>();
             this.SellerNotes = new HashSet<SellerNotes>();
+            this.SellerNotes1 = new HashSet<SellerNotes>();
             this.SellerNotesReportedIssues = new HashSet<SellerNotesReportedIssues>();
             this.SellerNotesReviews = new HashSet<SellerNotesReviews>();
             this.Transection = new HashSet<Transection>();
             this.Transection1 = new HashSet<Transection>();
             this.UserProfile = new HashSet<UserProfile>();
+            this.Admin = new HashSet<Admin>();
         }
     
         public int ID { get; set; }
@@ -48,6 +50,8 @@ namespace NotesMarketplace
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotes> SellerNotes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SellerNotes> SellerNotes1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotesReportedIssues> SellerNotesReportedIssues { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotesReviews> SellerNotesReviews { get; set; }
@@ -58,5 +62,7 @@ namespace NotesMarketplace
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserProfile> UserProfile { get; set; }
         public virtual UserRoles UserRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Admin> Admin { get; set; }
     }
 }

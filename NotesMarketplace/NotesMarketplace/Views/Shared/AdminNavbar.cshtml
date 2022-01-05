@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>@ViewBag.Title</title>
+
+    <!-- Icon -->
+    <link rel="Icon" href="img/favicon/favicon.ico">
+
+    <!-- Open Sans Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/Admin/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/Admin/css/font-awesome/fontawesome-free-5.15.1-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/Content/Admin/css/font-awesome/fontawesome-free-5.15.1-web/css/brands.css">
+    <link rel="stylesheet" href="~/Content/Admin/css/font-awesome/fontawesome-free-5.15.1-web/css/solid.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/Admin/css/bootstrap/bootstrap.min.css">
+
+    <!-- Custome CSS -->
+    <link rel="stylesheet" href="~/Content/Admin/css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/Admin/css/responsive.css">
+
+</head>
+
+<body data-target=".navbar">
+
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg white-nav-top white-navbar">
+            <div class="container">
+
+                <div class="navbar-header">
+
+
+                    <span id="mobile-nav-open-btn">&#9776;</span>
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="@Url.Action("AdminDashboard", "Admin")"><img class="img-fluid" src="~/Img/Admin/pre-login/Capture.png"></a>
+                </div>
+
+                <!-- Main Menu -->
+                <div class="collapse navbar-collapse justify-content-end default-header" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AdminDashboard","Admin")"><span>Dashboard</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Notes</span></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("NotesUnderReview","NotesUnderReview")">Notes Under Review</a>
+                                <a class="dropdown-item" href="@Url.Action("PublishedNotes","PublishedNotes")">Published Notes</a>
+                                <a class="dropdown-item" href="@Url.Action("DownloadedNotes","DownloadedNotes")">Downloaded Notes</a>
+                                <a class="dropdown-item" href="@Url.Action("RejectedNotes","RejectedNotes")">Rejected Notes</a>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("AllMembers","AllMembers")"><span>Members</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Reports</span></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("SpamReports","SpamReports")">Spam Reports</a>
+                            </div>
+
+                        </li>
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Settings</span></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                @if (User.IsInRole("Super Admin"))
+                                {
+                                    <a class="dropdown-item" href="@Url.Action("ManageSystemConfigurations","ManageSystemConfigurations")">Manage System Configuration</a>
+                                    <a class="dropdown-item" href="@Url.Action("ManageAdmin","Admin")">Manage Administrator</a>
+                                }
+                                <a class="dropdown-item" href="@Url.Action("ManageCategory","ManageCategory")">Manage Category</a>
+                                <a class="dropdown-item" href="@Url.Action("ManageTypes","ManageTypes")">Manage Type</a>
+                                <a class="dropdown-item" href="@Url.Action("ManageCountries","ManageCountries")">Manage Countries</a>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <div class="userprofile-user-icon dropdown">
+                                <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"> <img src="img/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User"></a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="@Url.Action("AdminProfile","AdminProfile")">Update Profile</a>
+                                    <a class="dropdown-item" href="@Url.Action("ChangePassword","SignUp")">Change Password</a>
+                                    <a class="dropdown-item givecolor" href="@Url.Action("Logout", "SignUp")">LOGOUT</a>
+                                </div>
+                            </div>
+
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a type="button" class="nav-link" id="mynavbtn" href="@Url.Action("Logout", "SignUp")">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a type="button" class="nav-link" id="mynavbtn" href="@Url.Action("Login", "SignUp")">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-nav">
+                    <!-- Mobile Menu Close Button -->
+                    <span id="mobile-nav-close-btn">&times;</span>
+
+                    <div id="mobile-nav-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("AdminDashboard","Admin")"><span>Dashboard</span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+
+                                <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span>Notes</span></a>
+                                <div class="dropdown-menu  text-center" aria-labelledby="dropdownMenuLink">
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("NotesUnderReview","NotesUnderReview")">Notes Under Review</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("PublishedNotes","PublishedNotes")">Published Notes</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("DownloadedNotes","DownloadedNotes")">Downloaded Notes</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("RejectedNotes","RejectedNotes")">Rejected Notes</a>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("AllMembers","AllMembers")"><span>Members</span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+
+                                <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Reports</span></a>
+                                <div class="dropdown-menu  text-center" aria-labelledby="dropdownMenuLink">
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("SpamReports","SpamReports")">Spam Reports</a>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item dropdown">
+
+                                <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>Settings</span></a>
+                                <div class="dropdown-menu  text-center" aria-labelledby="dropdownMenuLink">
+                                    @if (User.IsInRole("Super Admin"))
+                                    {
+                                        <div class="col-12">
+                                            <a class="dropdown-item" href="@Url.Action("ManageSystemConfigurations","ManageSystemConfigurations")">Manage System Configuration</a>
+                                        </div>
+                                        <div class="col-12">
+                                            <a class="dropdown-item" href="@Url.Action("ManageAdmin","Admin")">Manage Administrator</a>
+                                        </div>
+                                    }
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("ManageCategory","ManageCategory")">Manage Category</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("ManageTypes","ManageTypes")">Manage Type</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <a class="dropdown-item" href="@Url.Action("ManageCountries","ManageCountries")">Manage Countries</a>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"> <img src="img/user-profile/team-1.jpg" class="img-fluid rounded-circle" alt="User"></a>
+                                    <div class="dropdown-menu  text-center" aria-labelledby="dropdownMenuLink">
+                                        <div class="col-12">
+                                            <a class="dropdown-item " href="@Url.Action("AdminProfile","AdminProfile")">Update Profile</a>
+                                        </div>
+                                        <div class="col-12">
+                                            <a class="dropdown-item" href="@Url.Action("ChangePassword","SignUp")">Change Password</a>
+                                        </div>
+                                        <div class="col-12">
+                                            <a class="dropdown-item givecolor" href="@Url.Action("Logout", "SignUp")">LOGOUT</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a type="button" class="nav-link" id="mynavbtn" href="@Url.Action("Logout", "SignUp")">Logout</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a type="button" class="nav-link" id="mynavbtn" href="@Url.Action("Login", "SignUp")">Login</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+
+    @RenderBody()
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-12 text-center">
+
+                        <p>
+                            Version: 1.1.24
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 col-12 text-center">
+                        <p>
+                            Copyright &copy; Tatvasoft All Rights Reserved.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer ends -->
+    <!-- JQuery -->
+    <script src="~/Script/Admin/jquery.js"></script>
+
+    <!-- Proper JS -->
+    <script src="~/Script/Admin/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="~/Script/Admin/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/Script/Admin/script.js"></script>
+    <script src="~/Script/jquery.validate.min.js"></script>
+    <script src="~/Script/jquery.validate.unobtrusive.min.js"></script>
+</body>
+
+</html>

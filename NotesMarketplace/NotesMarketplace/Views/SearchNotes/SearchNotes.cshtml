@@ -164,20 +164,17 @@
                                                         item.Rating = 0;
                                                     }
 
-                                                    <span class="stars-active" style="width:@item.Rating">
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="stars-inactive">
-                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    </span>
+                                                    @for (var i = 0; i < 5; i++)
+                                                    {
+                                                        if (i < item.Rating)
+                                                        {
+                                                            <i class="fa fa-star giverate"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-star-o"></i>
+                                                        }
+                                                    }
                                                 </div>
 
                                             </div>

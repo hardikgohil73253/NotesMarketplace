@@ -7,15 +7,14 @@ html {
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /* Background */
 #background {
     min-height: 100%;
     width: 100%;
-
-    background-image: url("../img/pre-login/banner-with-overlay.jpg");
+    background-image: url("/Img/Admin/pre-login/banner-with-overlay.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -468,7 +467,7 @@ ul.social-list li a {
     margin-top: 100px;
     position: relative;
     background-size: 100% 100%;
-    background-image: url("../img/banner-with-overlay.jpg");
+    background-image: url("/Img/Admin/banner-with-overlay.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -641,7 +640,7 @@ Input[type=file]::-webkit-file-upload-button {
 }
 
 select {
-    background-image: url("../img/user-profile/down-arrow.png") !important;
+    background-image: url("/Img/Admin/user-profile/down-arrow.png") !important;
     background-position: calc(100% - 3px) 20px, calc(100% - 0px) 1px, 100%;
     background-repeat: no-repeat;
     -webkit-appearance: none;

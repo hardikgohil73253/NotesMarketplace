@@ -18,7 +18,6 @@ namespace NotesMarketplace
         public Downloads()
         {
             this.SellerNotesReportedIssues = new HashSet<SellerNotesReportedIssues>();
-            this.SellerNotesReviews = new HashSet<SellerNotesReviews>();
         }
     
         public int ID { get; set; }
@@ -43,7 +42,5 @@ namespace NotesMarketplace
         public virtual Users Users1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotesReportedIssues> SellerNotesReportedIssues { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SellerNotesReviews> SellerNotesReviews { get; set; }
     }
 }

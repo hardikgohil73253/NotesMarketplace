@@ -1,0 +1,62 @@
+﻿@model NotesMarketplace.Models.AddType
+@{
+    ViewBag.Title = "AddType";
+    Layout = "~/Views/Shared/AdminNavbar.cshtml";
+}
+
+<!-- Add Type -->
+
+@using (Html.BeginForm("AddType", "ManageTypes", FormMethod.Post, new { @class = "add-user-data" }))
+{
+    <section id="user-data" class="user-profile content-box-md">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h3>Add Type</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- First Name -->
+                                <div class="form-group">
+                                    <label class="classlable">Type *</label>
+                                    @Html.TextBoxFor(x=>x.TypeName,new { @class = "form-control classinput", @placeholder = "Enter your type" })
+                                    @Html.ValidationMessageFor(x => x.TypeName, "", new {@class="form-error"})
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <div class="textarea-input">
+                                        <label class="classlable" for="classinput">Description *</label>
+                                        @Html.TextBoxFor(x => x.Description, new { @class = "form-control classinput", @placeholder = "Enter your description " })
+                                        @Html.ValidationMessageFor(x => x.Description, "", new { @class = "form-error" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2 col-sm-3">
+                                <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>submit</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+}
+<!-- Add Type Ends -->

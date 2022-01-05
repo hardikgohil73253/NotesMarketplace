@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Admin">
       <EntityTypeMapping TypeName="NotesMarketplaceModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SecondaryEmail" ColumnName="SecondaryEmail" />
           <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
@@ -203,6 +204,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SpamTable">
+      <EntityTypeMapping TypeName="NotesMarketplaceModel.SpamTable">
+        <MappingFragment StoreEntitySet="SpamTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+          <ScalarProperty Name="SpamBy" ColumnName="SpamBy" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SystemConfigurations">
       <EntityTypeMapping TypeName="NotesMarketplaceModel.SystemConfigurations">
         <MappingFragment StoreEntitySet="SystemConfigurations">
@@ -233,13 +245,13 @@
           <ScalarProperty Name="IsAllowed" ColumnName="IsAllowed" />
           <ScalarProperty Name="IsDownloaded" ColumnName="IsDownloaded" />
           <ScalarProperty Name="DownloadDate" ColumnName="DownloadDate" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserProfile">
       <EntityTypeMapping TypeName="NotesMarketplaceModel.UserProfile">
         <MappingFragment StoreEntitySet="UserProfile">
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
@@ -260,6 +272,7 @@
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

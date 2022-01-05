@@ -1,0 +1,66 @@
+﻿@model NotesMarketplace.Models.AddCountry
+@{
+    ViewBag.Title = "AddCountry";
+    Layout = "~/Views/Shared/AdminNavbar.cshtml";
+}
+
+<!-- Add Catagory -->
+@using (Html.BeginForm("AddCountry", "ManageCountries", FormMethod.Post,new { @class= "add-user-data" }))
+{
+    <section id="user-data" class="user-profile content-box-md">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h3>Add Country</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <!-- First Name -->
+                                <div class="form-group">
+                                    <label class="classlable">Country Name *</label>
+                                    @Html.TextBoxFor(x=>x.CountryName,new { @class = "form-control classinput", @placeholder = "Enter your country name" })
+                                    @Html.ValidationMessageFor(x => x.CountryName, "", new {@class="form-error"})
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <!-- Last Name -->
+                                <div class="form-group">
+                                    <label class="classlable" for="classinput">Country Code*</label>
+                                    @Html.TextBoxFor(x => x.CountryCode, new { @class = "form-control classinput", @placeholder = "Enter your country code" })
+                                    @Html.ValidationMessageFor(x => x.CountryCode, "", new { @class = "form-error" })
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2 col-sm-3">
+                                <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>submit</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Add Catagory Ends-->
+
+
+}
+

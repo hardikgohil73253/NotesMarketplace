@@ -114,7 +114,7 @@ namespace NotesMarketplace.Controllers
                     {
                         noteobj.Status = 2;
                     }
-                    noteobj.ActionedBy = 3;
+                    noteobj.ActionedBy = obj.ID;
                     noteobj.CreatedDate = DateTime.Now;
                     noteobj.IsActive = true;
 
@@ -216,7 +216,7 @@ namespace NotesMarketplace.Controllers
                     {
                         oldnote.Status = 2;
                     }
-                    oldnote.ActionedBy = 3;
+                    oldnote.ActionedBy = obj.ID;
                     oldnote.ModifiedDate = DateTime.Now;
                     oldnote.IsActive = true;
 

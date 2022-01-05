@@ -78,3 +78,6 @@ C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\
 C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\PagedList.Mvc.dll
 C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\PagedList.xml
 C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\PagedList.Mvc.xml
+C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\DotNetZip.dll
+C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\DotNetZip.pdb
+C:\Users\Hardik\Desktop\Notes Marketplace\NotesMarketplace\NotesMarketplace\bin\DotNetZip.xml

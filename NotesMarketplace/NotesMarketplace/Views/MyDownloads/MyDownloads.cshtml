@@ -1,0 +1,280 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<NotesMarketplace.Transection>
+@{
+    ViewBag.Title = "MyDownloads";
+    Layout = "~/Views/Shared/NavbarAfter.cshtml";
+}
+
+<div class="outerbox">
+    <section id="table-details-section" class="table-margin">
+        <div class="container">
+
+            @using (Html.BeginForm("MyDownloads", "MyDownloads", FormMethod.Get))
+            {
+                <div class="row top-table">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <h3>My Downloads</h3>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="row justify-content-end">
+                            <div class="wrapper">
+                                <img src="~/Img/Front/Dashboard/search.jpg" class="searchimage doup">
+                                <input type="text" class="form-control search-bar classinput" placeholder="Search" name="search">
+                            </div>
+                            <div class="btn-merge">
+                                <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>Search</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid-table table-responsive-xl">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="align-middle text-center">SR NO.</th>
+                                    <th scope="col" class="align-middle">@Html.ActionLink("NOTE TITLE", "MyDownloads", new { sortby = ViewBag.SortTitle, search = Request.QueryString["search"] })</th>
+                                    <th scope="col" class="align-middle">@Html.ActionLink("CATEGORY", "MyDownloads", new { sortby = ViewBag.SortCategort, search = Request.QueryString["search"] })</th>
+                                    <th scope="col" class="align-middle">BUYER</th>
+                                    <th scope="col" class="align-middle">SELL TYPE</th>
+                                    <th scope="col" class="align-middle">PRICE</th>
+                                    <th scope="col" class="align-middle">@Html.ActionLink("DOWNLOADED DATE/TIME", "MyDownloads", new { sortby = ViewBag.SortDate, search = Request.QueryString["search"] })</th>
+                                    <th scope="col" class="align-middle"></th>
+                                    <th scope="col" class="align-middle"></th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Count() == 0)
+                                {
+                                    <tr>
+                                        <td colspan="9" class="text-center">No record found</td>
+                                    </tr>
+                                }
+                                @{ int c = 0;}
+                                @foreach (var item in Model)
+                                {
+                                    c += 1;
+                                    <tr>
+                                        <td class="align-middle text-center">@c</td>
+                                        <td class="align-middle getpurple">@item.Title</td>
+                                        <td class="align-middle">@item.Category</td>
+                                        <td class="align-middle">@item.Users1.EmailID</td>
+                                        @if (item.SellerNotes.IsPaid)
+                                        {
+                                            <td class="align-middle">Paid</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="align-middle">Free</td>
+                                        }
+
+                                        <td class="align-middle">₹ @item.Price</td>
+                                        @if (item.DownloadDate == null)
+                                        {
+                                            <td>Download this book</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.DownloadDate</td>
+                                        }
+                                        <td class="align-middle">
+                                            <a type="button" href="@Url.Action("NoteDetails","NoteDetails", new { nid = item.NoteID })"><img src="~/Img/Front/Dashboard/eye.png" alt="view"></a>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="dropdown">
+                                                <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v  dowhite"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="@Url.Action("Download","NoteDetails", new { nid = item.NoteID })">Download Notes</a>
+                                                    <a class="dropdown-item" href="#" type="submit" data-toggle="modal" data-target="#exampleModal" onclick="Review_Popup(@item.NoteID)">Add Reviews/Feedback</a>
+
+                                                    <a class="dropdown-item" href="#" onclick="Spam_Popup(@item.NoteID,'@item.Title')">Report as Inappropriate</a>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+
+                                }
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Pagination -->
+    <nav>
+        <div class="container">
+            <div class="row justify-content-center">
+
+
+                <ul class="pagination">
+                    @Html.PagedListPager(Model, page => Url.Action("MyDownloads", new { page, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"] }))
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Add Review Popup -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="add-review-popup-container">
+
+            <div class="row">
+
+                <div class="col">
+
+                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <h2>
+                        Add Review
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col" id="add-review-popup">
+
+                    @using (Html.BeginForm("AddReview", "MyDownloads", FormMethod.Post))
+                    {
+                        <input type="hidden" id="myField" name="nid" />
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value=5 required="required" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="rate" value=4 required="required" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="rate" value=3 required="required" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="rate" value=2 required="required" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="rate" value=1 required="required" />
+                            <label for="star1" title="text">1 star</label>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="comments" class="label-text">Comments *</label>
+                            <textarea type="text" class="form-control user-profile-input-field" id="comments" placeholder="Comments" name="Comments" maxlength="100"></textarea>
+                        </div>
+
+                        <button class="btn save-publish-button" type="submit">SUBMIT</button>
+                    }
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Add Review Popup End-->
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="add-spam-popup-container">
+
+            <div class="row">
+
+                <div class="col">
+
+                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <h2>
+                        Report as Inappropriate
+                    </h2>
+                    <br />
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col" id="add-spam-popup">
+
+                    @using (Html.BeginForm("SpamReport", "MyDownloads", FormMethod.Post))
+                    {
+                        <input type="hidden" id="myField-Note-ID" name="nid" />
+                        <h2 id="myField-Note-Title">
+                        </h2>
+                        <br>
+
+                        <div class="form-group">
+                            <label for="comments" class="label-text">Comments *</label>
+                            <input type="text" class="form-control user-profile-input-field" id="spam-comments" placeholder="Comments" name="SpamComments" maxlength="100">
+                        </div>
+
+                        <button class="btn save-publish-button" type="submit" onclick="return confirm('Are you sure you want to mark this report as spam, you cannot update it later?');">SUBMIT</button>
+                        <button class="btn save-publish-button" data-dismiss="modal">Cancel</button>
+                    }
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Spam Popup End-->
+
+<script>
+
+    var Review_Popup = function (nid) {
+
+        document.getElementById('myField').value = nid;
+        $("#exampleModal").modal("show");
+
+    }
+
+    var Spam_Popup = function (nid, title) {
+
+        document.getElementById('myField-Note-ID').value = nid;
+        document.getElementById('myField-Note-Title').innerHTML = title;
+        $("#exampleModal2").modal("show");
+
+    }
+
+</script>

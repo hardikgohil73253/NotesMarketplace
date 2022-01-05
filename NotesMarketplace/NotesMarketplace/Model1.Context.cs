@@ -37,6 +37,7 @@ namespace NotesMarketplace
         public virtual DbSet<SellerNotesAttachements> SellerNotesAttachements { get; set; }
         public virtual DbSet<SellerNotesReportedIssues> SellerNotesReportedIssues { get; set; }
         public virtual DbSet<SellerNotesReviews> SellerNotesReviews { get; set; }
+        public virtual DbSet<SpamTable> SpamTable { get; set; }
         public virtual DbSet<SystemConfigurations> SystemConfigurations { get; set; }
         public virtual DbSet<Transection> Transection { get; set; }
         public virtual DbSet<UserProfile> UserProfile { get; set; }

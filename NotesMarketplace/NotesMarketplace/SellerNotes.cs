@@ -22,6 +22,7 @@ namespace NotesMarketplace
             this.SellerNotesAttachements = new HashSet<SellerNotesAttachements>();
             this.SellerNotesReportedIssues = new HashSet<SellerNotesReportedIssues>();
             this.SellerNotesReviews = new HashSet<SellerNotesReviews>();
+            this.SpamTable = new HashSet<SpamTable>();
             this.Transection = new HashSet<Transection>();
         }
     
@@ -63,12 +64,15 @@ namespace NotesMarketplace
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RejectedNote> RejectedNote { get; set; }
         public virtual Users Users { get; set; }
+        public virtual Users Users1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotesAttachements> SellerNotesAttachements { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotesReportedIssues> SellerNotesReportedIssues { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellerNotesReviews> SellerNotesReviews { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SpamTable> SpamTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transection> Transection { get; set; }
     }

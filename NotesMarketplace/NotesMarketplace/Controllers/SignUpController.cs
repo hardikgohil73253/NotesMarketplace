@@ -149,19 +149,35 @@ namespace NotesMarketplace.Controllers
                             cookie.HttpOnly = true;
                             Response.Cookies.Add(cookie);
 
-                            var upobj = dbobj.UserProfile.Where(a => a.UserID == v.ID).FirstOrDefault();
-                            if(upobj==null)
+                            if (v.RoleID == 3) //normal user
                             {
-                                return RedirectToAction("UserProfile", "UserProfile");
+                                var upobj = dbobj.UserProfile.Where(a => a.UserID == v.ID).FirstOrDefault();
+                                if (upobj == null)
+                                {
+                                    return RedirectToAction("UserProfile", "UserProfile");
+                                }
+                                else if (!String.IsNullOrEmpty(ReturnUrl))
+                                {
+                                    return Redirect(ReturnUrl);
+                                }
+                                else
+                                {
+                                    return RedirectToAction("SearchNotes", "SearchNotes");
+                                }
                             }
-                            else if (!String.IsNullOrEmpty(ReturnUrl))
+                            else //admin
                             {
-                                return Redirect(ReturnUrl);
+                                var upobj = dbobj.Admin.Where(a => a.UserID == v.ID).FirstOrDefault();
+                                if (upobj == null)
+                                {
+                                    return RedirectToAction("AdminProfile", "AdminProfile");
+                                }
+                                else
+                                {
+                                    return RedirectToAction("AdminDashboard","Admin");
+                                }
                             }
-                            else
-                            {
-                                return RedirectToAction("SearchNotes", "SearchNotes");
-                            }
+
                         }
                         else
                         {

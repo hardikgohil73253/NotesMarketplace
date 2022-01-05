@@ -1,0 +1,319 @@
+﻿
+@{
+    ViewBag.Title = "NoteDetails";
+    Layout = "~/Views/Shared/NavbarAfter.cshtml";
+}
+
+@model NotesMarketplace.SellerNotes
+
+<style>
+    .stars-active {
+        color: #EEBD01;
+        position: relative;
+        z-index: 10;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .stars-inactive {
+        color: grey;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-text-stroke: initial;
+        /* overflow: hidden; */
+    }
+</style>
+
+@if (Model.IsActive || ViewBag.IsDealAvailable != null)
+{
+    <!-- Detail Section -->
+    <section id="notesdetail-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-sm-12">
+                    <div class="head">
+                        <h3>Notes Details</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-7">
+                            <div class="row docenter">
+                                <div class=" col-12 col-sm-5 col-md-5 col-lg-5">
+                                    <img class="img-fluid" src="../@Model.DisplayPicture" alt="">
+                                </div>
+                                <div class="col-12 col-sm-7 col-md-7 col-lg-7">
+
+                                    <h2>@Model.Title</h2>
+                                    <h5>@Model.NoteCategories.Name</h5>
+                                    <p class="text-left">@Model.Description</p>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-7 col-lg-9">
+                                            @if (Model.IsPaid)
+                                            {
+                                                if (!Request.IsAuthenticated)
+                                                {
+                                                    <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="location.href='@Url.Action("Login","SignUp", new { ReturnUrl = HttpContext.Current.Request.Url.AbsoluteUri })'"><b>download/ ₹ @Model.SellingPrice</b></button>
+                                                }
+                                                else
+                                                {
+                                                    if (Model.SellerID == ViewBag.CurrentUserID)
+                                                    {
+                                                        <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="location.href='@Url.Action("Download", "NoteDetails", new { nid = Model.ID })'"><b>Your Note</b></button>
+                                                    }
+                                                    else
+                                                    {
+                                                        if (ViewBag.IsDealAvailable != null)
+                                                        {
+                                                            if (ViewBag.IsDealAvailable)
+                                                            {
+                                                                <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="location.href='@Url.Action("Download", "NoteDetails", new { nid = Model.ID })'"><b>download/₹ @Model.SellingPrice</b></button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="alert('You Already Requested');">REQUESTED</button>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <button type="submit" class="btn text-uppercase text-center" id="idbtn" data-toggle="modal" data-target="#exampleModal" onclick="location.href='@Url.Action("Download", "NoteDetails", new { nid = Model.ID })'"><b>download/₹ @Model.SellingPrice</b></button>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (!Request.IsAuthenticated)
+                                                {
+                                                    <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="location.href='@Url.Action("Login","SignUp", new { ReturnUrl = HttpContext.Current.Request.Url.AbsoluteUri })'"><b> FREE download </b></button>
+                                                }
+                                                else
+                                                {
+                                                    if (Model.SellerID == ViewBag.CurrentUserID)
+                                                    {
+                                                        <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="location.href='@Url.Action("Download", "NoteDetails", new { nid = Model.ID })'">YOUR BOOK</button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button type="submit" class="btn text-uppercase text-center" id="idbtn" onclick="location.href='@Url.Action("Download", "NoteDetails", new { nid = Model.ID })'">FREE DOWNLOAD</button>
+                                                    }
+                                                }
+                                            }
+                                            
+                                            <!-- Thanks PopUp -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <a type="button" class="close" data-dismiss="modal" aria-label="Close" href="">
+                                                                        <img src="~/Img/Front/Notes Details/close.png">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="model-data">
+
+                                                                    <div class="model-head text-center">
+                                                                        <img class="img-fluid" src="~/Img/Front/Notes Details/SUCCESS.png">
+                                                                        <h2>Thank your for purchasing!</h2>
+                                                                    </div>
+                                                                    <div class="middel-content text-left">
+                                                                        <h3>Dear @ViewBag.CurrentUserName</h3>
+                                                                        <p class="para-1">As this is paid notes-you need to pay to seller @Model.Users1.FirstName @Model.Users1.LastName offline.We will send him an email that you want to download this note.He may contact you further for payment process completion.</p>
+                                                                        <p class="para-2">In Case, you have urgency,<br>Please contact us on +9195538863848.</p>
+                                                                        <p class="para-3">Once he recevies the payment and acknowledge us-Seleted notes you can see over my downloads tab for download.</p>
+                                                                        <p class="para-4">Have a good day.</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- Thanks PopUp Ends -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 margin-top">
+                            <div class="row">
+                                <div class="col-5 col-sm-5 col-md-5 left-side-note">
+                                    <h5>Institution:</h5>
+                                    <h5>Country:</h5>
+                                    <h5>Course Name:</h5>
+                                    <h5>Course Code:</h5>
+                                    <h5>Professor:</h5>
+                                    <h5>Number of Pages:</h5>
+                                    <h5>Approved Date:</h5>
+                                    <h5>Rating:</h5>
+                                </div>
+                                <div class="col-7 col-sm-7 col-md-7 right-side-note text-right">
+                                    <h5>@Model.UniversityName</h5>
+                                    <h5>@Model.Countries.Name</h5>
+                                    <h5>@Model.Course</h5>
+                                    <h5>@Model.CourseCode</h5>
+                                    <h5>@Model.Professor</h5>
+                                    <h5>@Model.NumberofPages</h5>
+                                    <h5>November 25 2020</h5>
+                                    <div class="rate-fa">
+
+                                        @if (Model.Rating == null)
+                                        {
+                                            Model.Rating = 0;
+                                        }
+
+                                        @for (var i = 0; i < 5; i++)
+                                        {
+                                            if (i < Model.Rating)
+                                            {
+                                                <i class="fa fa-star giverate"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="fa fa-star-o"></i>
+                                            }
+                                        }
+
+
+                                        @if (Model.TotalReviews == null)
+                                        {
+                                            Model.TotalReviews = 0;
+                                        }
+                                        <i class="numofreview">@Model.TotalReviews Reviews</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inappropriate">
+                                @if (Model.TotalSpams != null)
+                                {
+                                    <p>@Model.TotalSpams User marked this note as inappropriate</p>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Detail Section Ends-->
+
+    <div class="content-box-md">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Section -->
+    <section id="notesdetail-preview">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+                    <div class="head">
+                        <h3>Notes Preview</h3>
+                    </div>
+                    <div id="Iframe-Cicis-Menu-To-Go" class="set-margin-cicis-menu-to-go set-padding-cicis-menu-to-go set-border-cicis-menu-to-go set-box-shadow-cicis-menu-to-go center-block-horiz">
+                        <div class="responsive-wrapper responsive-wrapper-padding-bottom-90pct" style="-webkit-overflow-scrolling: touch; overflow: auto;">
+                            @if (@Model.NotesPreview != null)
+                            {
+                                <iframe src="@Model.NotesPreview">
+                                    <p style="font-size: 110%;">
+                                        <em>
+                                            <strong>ERROR: </strong>
+                                            An &#105;frame should be displayed here but your browser version does not support &#105;frames.
+                                        </em> Please update your browser to its most recent version and try again, or access the file <a href="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf">with this link.</a>
+                                    </p>
+                                </iframe>
+                            }
+                            else
+                            {
+                                <div class="row">
+                                    <div class="col  justify-content-center">
+                                        <p>
+                                            <br /><br /><br />
+                                            Preview is not available
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-7 margin-top">
+                    <div class="head">
+                        <h3>Customer Reviews</h3>
+                    </div>
+                    <div class="customer-reviews">
+                        @foreach (var item in ViewBag.Reviews)
+                        {
+                            <div class="row">
+                                <div class="col-3 col-sm-3 col-md-2">
+                                    <img src="@item.UserImage" alt="user" class="img-fluid rounded-circle">
+                                </div>
+                                <div class="col-9 col-sm-9 col-md-10">
+                                    <h5>@item.ReviewBy</h5>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="rate-fa">
+
+
+                                                @for (var i = 0; i < 5; i++)
+                                                {
+                                                    if (i < item.Stars)
+                                                    {
+                                                        <i class="fa fa-star giverate"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-star-o"></i>
+                                                    }
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>@item.Comment</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Preview Section Ends -->
+
+}
+else
+{
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="color: #6255A5;">Book Not Available</h2>
+            </div>
+        </div>
+    </div>
+}
+

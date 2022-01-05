@@ -1,0 +1,99 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<NotesMarketplace.SellerNotes>
+@{
+    ViewBag.Title = "MyRejectedNotes";
+    Layout = "~/Views/Shared/NavbarAfter.cshtml";
+}
+
+<!-- My Rejected Notes -->
+<section id="table-details-section" class="table-margin">
+    <div class="container">
+        @using (Html.BeginForm("MyRejectedNotes", "MyRejectedNotes", FormMethod.Get))
+        {
+            <div class="row top-table">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                    <h3>My Rejected Notes</h3>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="row justify-content-end">
+                        <div class="wrapper">
+                            <img src="~/Img/Front/Dashboard/search.jpg" class="searchimage doup">
+                            <input type="text" class="form-control search-bar classinput" placeholder="Search" name="search">
+                        </div>
+                        <div class="btn-merge">
+                            <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>Search</b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="grid-table table-responsive-xl">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="align-middle text-center">SR NO.</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("NOTE TITLE", "MyRejectedNotes", new { sortby = ViewBag.SortTitle, search = Request.QueryString["search"] })</th>
+                                <th scope="col" class="align-middle">@Html.ActionLink("CATEGORY", "MyRejectedNotes", new { sortby = ViewBag.SortCategort, search = Request.QueryString["search"] })</th>
+                                <th scope="col" class="align-middle">REMARKS</th>
+                                <th scope="col" class="align-middle">CLONE</th>
+                                <th scope="col" class="align-middle"> </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="6" class="text-center">No record found</td>
+                                </tr>
+                            }
+                            @{ int c = 0; }
+                            @foreach (var item in Model)
+                            {
+                                c += 1;
+                                <tr>
+                                    <td class="align-middle text-center">@c</td>
+                                    <td class="align-middle getpurple"><a href="@Url.Action("NoteDetails","NoteDetails", new { nid = item.ID })">@item.Title</a></td>
+                                    <td class="align-middle">@item.NoteCategories.Name</td>
+                                    <td class="align-middle">@item.AdminRemarks</td>
+                                    <td class="align-middle"><a href="@Url.Action("AddNotes","AddNotes", new { id = item.ID, clone = "clone" })" class="getpurple">clone</a></td>
+                                    <td class="align-middle">
+                                        <div class="dropdown">
+                                            <a type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v dowhite"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="@Url.Action("Download","NoteDetails", new { nid = item.ID })">Download Notes</a>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pagination -->
+<nav>
+    <div class="container">
+        <div class="row justify-content-center">
+
+
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("MyRejectedNotes", new { page, search = Request.QueryString["search"], sortby = Request.QueryString["sortby"] }))
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Pagination Ends -->

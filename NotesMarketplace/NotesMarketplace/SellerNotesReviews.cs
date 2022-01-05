@@ -26,7 +26,6 @@ namespace NotesMarketplace
         public Nullable<int> ModifiedBy { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual Downloads Downloads { get; set; }
         public virtual SellerNotes SellerNotes { get; set; }
         public virtual Users Users { get; set; }
     }

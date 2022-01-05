@@ -24,5 +24,8 @@ namespace NotesMarketplace
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public Nullable<int> ModifiedBy { get; set; }
         public bool IsActive { get; set; }
+        public int UserID { get; set; }
+    
+        public virtual Users Users { get; set; }
     }
 }

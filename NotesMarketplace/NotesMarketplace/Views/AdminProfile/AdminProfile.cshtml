@@ -1,0 +1,135 @@
+﻿@model NotesMarketplace.Models.AdminProfile
+@{
+    ViewBag.Title = "AdminProfile";
+    Layout = "~/Views/Shared/AdminNavbar.cshtml";
+}
+
+@{
+    <style>
+        .form-error {
+            color: red;
+        }
+    </style>
+}
+
+<!-- My Profile -->
+@*<form class="add-user-data">*@
+
+    <!-- Pesronal Detail -->
+    <section id="user-data" class="user-profile content-box-md">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h3>My Profile</h3>
+                        </div>
+                    </div>
+                </div>
+                @using (Html.BeginForm("AdminProfile", "AdminProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- First Name -->
+                                    <div class="form-group">
+                                        <label class="classlable">First Name*</label>
+                                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control classinput", @placeholder = "Enter your First Name" })
+                                        @Html.ValidationMessageFor(x => x.FirstName, "", new { @class = "form-error" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Last Name -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">Last Name*</label>
+                                        @Html.TextBoxFor(x=>x.LastName,new { @class = "form-control classinput", @placeholder = "Enter your Last Name" })
+                                        @Html.ValidationMessageFor(x => x.LastName,"" ,new {@class="form-error"})
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">Email*</label>
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control classinput", @placeholder = "Enter your Email Address" })
+                                        @Html.ValidationMessageFor(x => x.Email,"" ,new {@class="form-error"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <!-- Date Of Birth -->
+                                    <div class="form-group">
+                                        <label class="classlable" for="classinput">Secondary Email</label>
+                                        @Html.TextBoxFor(x => x.SecondaryEmail, new { @class = "form-control classinput", @placeholder = "Enter your Email Address" })
+                                        @Html.ValidationMessageFor(x => x.SecondaryEmail, "", new { @class = "form-error" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-sm-6">
+
+                                    <!-- Phone Number -->
+                                    <div class="form-group">
+                                        <label class="classlable">Phone Number</label>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-5 col-3 col-xl-3 col-lg-4  nopadding">
+                                                    <div class="marginright">
+                                                        @Html.DropDownListFor(x => x.CountryCode, new SelectList(ViewBag.CountryCodelist, "Value", "Text",Model.CountryCode), "Select Country", new { @class = "form-control inputselect" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-sm-7 col-9 col-xl-9 col-lg-8 nopadding">
+                                                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control classinput", @placeholder = "Enter your phone number" })
+                                                    @Html.ValidationMessageFor(x => x.PhoneNumber, "", new {@class="form-error"})
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Profile Picture -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="upload-profile-pic">
+                                            <label class="classlable" for="classinput">Profile Picture</label>
+
+                                            @Html.TextBoxFor(x => x.ProfilePicture, new { @class = "form-control classinput", @onchange = "return ProfilePictureValidation()", type = "file" , accept = ".jpg , .jpeg , .png" })
+                                            
+                                            <div class="uploadmypic text-center">
+                                                <img class="img-fluid" src="~/Img/Admin/user-profile/upload.png">
+                                                <h6>Upload a picture</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 col-sm-3">
+                                    <button type="submit" class="btn text-uppercase text-center" id="idbtn"><b>submit</b></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </section>
+@*</form>*@
+<!-- My Profile Ends -->
